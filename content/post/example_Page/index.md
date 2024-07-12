@@ -1,5 +1,4 @@
 +++
-author = "Hugo Authors"
 title = "Example Page"
 # slug = "example-page"
 date = "2024-07-01"

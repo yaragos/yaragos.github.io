@@ -150,5 +150,5 @@ tabWidth = 4
 enableGitInfo = true
 
 [frontmatter]
-lastmod = ['lastmod', ':git', 'date', 'publishDate']
+lastmod = [":git", "lastmod", ":fileModTime"]
 
