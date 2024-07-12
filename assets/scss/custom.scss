@@ -3,8 +3,8 @@
 :root {
   --card-border-radius: 20px; //小卡片圆角
   --article-font-size: 1.7rem; // 全局字体大小
-  //--card-background: #ffffff;//小卡片背景颜色
-  //--body-text-color: rgba(171, 169, 169, 0.58);//字体颜色
+  // --card-background: #ffffff;//小卡片背景颜色
+  // --body-text-color: rgba(171, 169, 169, 0.58);//字体颜色
 }
 
 //-------------------------------------------
@@ -36,51 +36,8 @@ a {
   }
 }
 
-/*滚动条样式*/
-html {
-  ::-webkit-scrollbar {
-    width: 18px;
-    //display: none; //隐藏滚动条
-  }
-
-  ::-webkit-scrollbar-track {
-    //background-color: #fff; //滚动条背景颜色
-  }
-
-  ::-webkit-scrollbar-thumb {
-    //鼠标移动上去前的滚动条颜色
-    background-color: rgba(111, 114, 115, 0.65);
-    border-radius: 40px;
-    border: 6px solid transparent;
-    background-clip: content-box;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    //鼠标移动上去时的滚动条颜色
-    background-color: #232525;
-  }
-}
-
-//----------------------------------------------------------
-/*主页布局间距调整*/
-.main-container {
-  gap: 50px; //文章宽度
-
-  @include respond(md) {
-    padding: 0 30px;
-    gap: 40px; //中等屏幕时的文章宽度
-  }
-}
-
-.related-contents {
-  overflow-x: visible; //显示隐藏的图标
-  padding-bottom: 15px;
-}
-
 //----------------------------------------------------------
 /*主页文章图片样式*/
-$image-scale: 1.2;
-
 .article-list article .article-image img {
   width: 100%;
   height: 150px;
@@ -100,19 +57,15 @@ $image-scale: 1.2;
   }
 }
 
-/*主页文章图片圆角*/
-.article-list article {
-  --card-border-radius: 24px;
-}
-
 /*文章标签圆角*/
 .article-category a,
 .article-tags a {
   border-radius: 11px;
 }
 
-
 /*鼠标移动到文章图片放大*/
+$image-scale: 1.2;
+
 .article-list article .article-image {
   position: relative;
   overflow: hidden; //不显示超出的部分
@@ -164,108 +117,10 @@ $image-scale: 1.2;
 }
 
 
-/*社交菜单居中*/
-.menu-social svg {
-  gap: 15px;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  stroke: var(--body-text-color);
-  stroke-width: 1.33;
-}
+/*TODO 社交菜单居中*/
 
-/*TODO
-模式切换按钮距离上边按钮边距调整*/
+/*TODO 模式切换按钮距离上边按钮边距调整*/
 
-
-/*下拉菜单美化*/
-.menu {
-  list-style: none;
-  flex-direction: column;
-  overflow-x: hidden;
-  overflow-y: scroll; //搭配菜单滚动条美化使用
-  flex-grow: 1;
-  font-size: 1.7rem;
-  //background-color: rgb(252, 252, 252);
-
-  box-shadow: var(--shadow-l2); //改个阴影
-  display: none;
-  margin: 0; //改为0
-  border-radius: 20px; //加个圆角
-  padding: 30px 30px;
-
-  @include respond(xl) {
-    padding: 15px 0;
-  }
-
-  &,
-  .menu-bottom-section {
-    gap: 30px;
-
-    @include respond(xl) {
-      gap: 25px;
-    }
-  }
-
-  &.show {
-    display: flex;
-  }
-
-  @include respond(md) {
-    align-items: flex-end;
-    display: flex;
-    background-color: transparent;
-    padding: 0;
-    box-shadow: none;
-    margin: 0;
-  }
-
-  li {
-    position: relative;
-    vertical-align: middle;
-    padding: 0;
-
-    @include respond(md) {
-      width: 100%;
-    }
-
-    svg {
-      stroke-width: 1.33;
-
-      width: 20px;
-      height: 20px;
-    }
-
-    a {
-      height: 100%;
-      display: inline-flex;
-      align-items: center;
-      color: var(--body-text-color);
-      gap: var(--menu-icon-separation);
-    }
-
-    span {
-      flex: 1;
-    }
-
-    &.current {
-      a {
-        color: var(--accent-color);
-        font-weight: bold;
-      }
-    }
-  }
-}
-
-/*手机模式下的菜单滚动条美化*/
-.menu::-webkit-scrollbar {
-  display: none; //防止大屏幕时出现滚动条
-}
-
-.sidebar header .site-name {
-  margin: 8px;
-  font-size: 2rem; //字体大小
-}
 
 /*------------------右侧导航栏--------------*/
 /*搜索菜单动画*/
@@ -366,7 +221,8 @@ $image-scale: 1.2;
 }
 
 
--------------------------------------------------- 页面三栏宽度调整 .container {
+-------------------------------------------------- 页面三栏宽度调整
+.container {
   margin-left: auto;
   margin-right: auto;
 
