@@ -49,3 +49,6 @@ jobs:
                   folder: public
                   clean: true
                   single-commit: true
+
+env:
+    TZ: Asia/Shanghai # set the timezone

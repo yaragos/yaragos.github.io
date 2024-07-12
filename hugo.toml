@@ -26,8 +26,8 @@ favicon = "/img/favicon.png"
 since = 2024
 
 [params.dateFormat]
-published = "Jan 02, 2006"
-lastUpdated = "Jan 02, 2006 15:04 MST"
+published = "2006-01-02"
+lastUpdated = "2006-01-02 15:04 MST"
 
 [params.sidebar]
 emoji = "🍥"
@@ -97,14 +97,18 @@ enabled = true
 enabled = true
 
 # menu configuration
-[menu]
-main = []
+[[menu.main]]
+identifier = "tags"
+name = "Tags"
+url = "/tags/"
+weight = -70
+[menu.main.params]
+icon = "tag"
 
 [[menu.social]]
 identifier = "github"
 name = "GitHub"
 url = "https://github.com/yaragos/"
-
 [menu.social.params]
 icon = "brand-github"
 
@@ -124,6 +128,7 @@ weight = 200
 # Markdown renderer configuration (https://gohugo.io/content-management/markup/#goldmark)
 [markup.goldmark.renderer]
 unsafe = true
+hardWraps = true
 
 [markup.tableOfContents]
 endLevel = 4
@@ -139,8 +144,11 @@ lineNos = true
 lineNumbersInTable = true
 tabWidth = 4
 
-# To show the last modification time of a page
+# Show the last modification time of a page.
+# To ensure the last modification time is correct,
+# you need to set the timezone in .github/workflows/deploy.yml.
 enableGitInfo = true
 
 [frontmatter]
-lastmod = [":git", "lastmod", ":fileModTime"]
+lastmod = ['lastmod', ':git', 'date', 'publishDate']
+
