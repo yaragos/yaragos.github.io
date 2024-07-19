@@ -1,6 +1,6 @@
 ---
 title: Golang
-description: Golang相关学习笔记
+description: Golang 相关
 image: cover.png
 
 # Badge style

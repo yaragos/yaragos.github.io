@@ -1,6 +1,6 @@
 ---
-title: PYTHON
-description: PYTHON 相关学习笔记
+title: Java
+description: Java 相关
 image: cover.png
 
 # Badge style
