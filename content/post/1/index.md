@@ -9,8 +9,8 @@ tags = [
 categories = [
     "Linux",
 ]
-description = 'Windows狗都不用,Mac...'
-draft = true
+description = 'Windows狗都不用,Mac...再说吧'
+# draft = true
 +++
 
 > 主要尝试了deb系比如debian, deepin, zorin, mint等和arch系比如Manjaro, EndeavourOS等，桌面环境只尝试了Gnome和KDE,没尝试过各种WM。目前一直在用mint,它的Cinnamon桌面挺好用。
