@@ -40,7 +40,7 @@ a {
 /*主页文章图片样式*/
 .article-list article .article-image img {
   width: 100%;
-  height: 150px;
+  height: 130px;
   object-fit: cover;
 
   //不同显示器（手机，小屏幕电脑，大屏幕电脑）显示的图片高度大小
@@ -77,22 +77,6 @@ $image-scale: 1.2;
 
 .article-list article .article-image img {
   transition: transform 0.85s ease-in-out; //持续时间
-}
-
-//----------------------------------------------------
-/*文章内部-页脚-相关文章图片圆角*/
-.article-list--compact article .article-image img {
-  border-radius: 17%;
-}
-
-/*文章内部-页脚-相关文章图片放大动画*/
-.article-list--compact article>a {
-  transition: .6s ease;
-}
-
-.article-list--compact article>a:hover {
-  transform: scale(1.03, 1.03);
-  overflow: visible;
 }
 
 //-------------------------------------------------------
@@ -175,7 +159,6 @@ $image-scale: 1.2;
   overflow: visible;
 }
 
-
 // ---------------------------------------
 // 代码块样式修改
 .article-content .highlight {
@@ -183,11 +166,12 @@ $image-scale: 1.2;
   padding: var(--card-padding);
   position: relative;
 
-  max-width: 105% !important;
-  margin-left: -1em;
-  margin-right: -1em;
+  max-width: 102% !important;
+  margin-left: -7px !important;
+  margin-right: -12px;
   border-radius: 20px;
   box-shadow: var(--shadow-l1);
+  // box-shadow: var(--shadow-l1) !important;
   overflow-x: auto;
   max-height: 100vh;
 
@@ -220,8 +204,8 @@ $image-scale: 1.2;
   background-color: #fff9f3cc;
 }
 
-
--------------------------------------------------- 页面三栏宽度调整
+// ---------------------------------------
+// 页面三栏宽度调整
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -259,9 +243,9 @@ $image-scale: 1.2;
     }
 
     @include respond(2xl) {
-      max-width: 1800px;
+      max-width: 1700px;
       --left-sidebar-max-width: 15%;
-      --right-sidebar-max-width: 25%;
+      --right-sidebar-max-width: 20%;
     }
   }
 

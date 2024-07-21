@@ -18,8 +18,11 @@
 
 
 <!-- 进度条 -->
-<script src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js" integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css" integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE" crossorigin="anonymous" />
+<script src="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/js/nprogress.min.js"
+    integrity="sha384-bHDlAEUFxsRI7JfULv3DTpL2IXbbgn4JHQJibgo5iiXSK6Iu8muwqHANhun74Cqg"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/zhixuan2333/gh-blog@v0.1.0/css/nprogress.css"
+    integrity="sha384-KJyhr2syt5+4M9Pz5dipCvTrtvOmLk/olWVdfhAp858UCa64Ia5GFpTN7+G4BWpE" crossorigin="anonymous" />
 <script>
     NProgress.start();
     document.addEventListener("readystatechange", () => {
@@ -30,13 +33,63 @@
 
 <!-- 通过 pangu.js 自动在博客的中英文之间添加空格 -->
 <script>
-    (function(u, c) {
-      var d = document, t = 'script', o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function(e) { c(e); }); }
-      s.parentNode.insertBefore(o, s);
-    })('//cdn.bootcss.com/pangu/4.0.7/pangu.min.js', function() {
-      pangu.spacingPage();
+    (function (u, c) {
+        var d = document, t = 'script', o = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        o.src = u;
+        if (c) { o.addEventListener('load', function (e) { c(e); }); }
+        s.parentNode.insertBefore(o, s);
+    })('//cdn.bootcss.com/pangu/4.0.7/pangu.min.js', function () {
+        pangu.spacingPage();
     });
 </script>
+
+<!-- 雪花点 https://cdnjs.com/libraries/Snowstorm -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Snowstorm/20131208/snowstorm-min.js"></script>
+
+
+<!-- 雪花 -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    (function ($) {
+        $.fn.snow = function (options) {
+            var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
+                documentHeight = $(document).height(),
+                documentWidth = $(document).width(),
+                defaults = {
+                    minSize: 10,
+                    maxSize: 20,
+                    newOn: 1000,
+                    flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+                },
+                options = $.extend({}, defaults, options);
+            var interval = setInterval(function () {
+                var startPositionLeft = Math.random() * documentWidth - 100,
+                    startOpacity = 0.5 + Math.random(),
+                    sizeFlake = options.minSize + Math.random() * options.maxSize,
+                    endPositionTop = documentHeight - 200,
+                    endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+                    durationFall = documentHeight * 10 + Math.random() * 5000;
+                $flake.clone().appendTo('body').css({
+                    left: startPositionLeft,
+                    opacity: startOpacity,
+                    'font-size': sizeFlake,
+                    color: options.flakeColor
+                }).animate({
+                    top: endPositionTop,
+                    left: endPositionLeft,
+                    opacity: 0.2
+                }, durationFall, 'linear', function () {
+                    $(this).remove()
+                });
+            }, options.newOn);
+        };
+    })(jQuery);
+    $(function () {
+        $.fn.snow({
+            minSize: 5, /* 定义雪花最小尺寸 */
+            maxSize: 50,/* 定义雪花最大尺寸 */
+            newOn: 800  /* 定义密集程度，数字越小越密集 */
+        });
+    });
+</script> -->

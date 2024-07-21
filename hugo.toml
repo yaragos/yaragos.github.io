@@ -26,7 +26,7 @@ favicon = "/img/favicon.png"
 since = 2024
 
 [params.dateFormat]
-published = "2006-01-02"
+published = "2006-01-02 15:04 MST"
 lastUpdated = "2006-01-02 15:04 MST"
 
 [params.sidebar]
