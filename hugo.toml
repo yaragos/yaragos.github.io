@@ -6,6 +6,11 @@ copyright = "Yaragos"
 defaultContentLanguage = "en"
 hasCJKLanguage = true
 
+# Show the last modification time of a page.
+# To ensure the last modification time is correct,
+# you need to set the timezone in .github/workflows/deploy.yml.
+enableGitInfo = true
+
 # theme = "hugo-theme-stack"
 # Import the theme module.
 [[module.imports]]
@@ -143,11 +148,6 @@ lineNoStart = 1
 lineNos = true
 lineNumbersInTable = true
 tabWidth = 4
-
-# Show the last modification time of a page.
-# To ensure the last modification time is correct,
-# you need to set the timezone in .github/workflows/deploy.yml.
-enableGitInfo = true
 
 [frontmatter]
 # lastmod = [":git", "lastmod", ":fileModTime"]
