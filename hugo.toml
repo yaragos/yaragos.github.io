@@ -11,6 +11,10 @@ hasCJKLanguage = true
 # you need to set the timezone in .github/workflows/deploy.yml.
 enableGitInfo = true
 
+[frontmatter]
+# lastmod = [":git", "lastmod", ":fileModTime"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+
 # theme = "hugo-theme-stack"
 # Import the theme module.
 [[module.imports]]
@@ -26,6 +30,8 @@ mainSections = ["post"]
 featuredImageField = "image"
 rssFullContent = true
 favicon = "/img/favicon.png"
+# Enable image loop
+enableimgloop = true
 
 [params.footer]
 since = 2024
@@ -44,7 +50,7 @@ local = true
 src = "img/avatar.png"
 
 [params.article]
-math = true
+math = false
 toc = true
 readingTime = true
 
@@ -148,8 +154,4 @@ lineNoStart = 1
 lineNos = true
 lineNumbersInTable = true
 tabWidth = 4
-
-[frontmatter]
-# lastmod = [":git", "lastmod", ":fileModTime"]
-lastmod = ["lastmod", ":git", ":fileModTime", "date", "publishDate"]
 

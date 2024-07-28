@@ -15,3 +15,8 @@
 		document.head.appendChild(customFont);
 	}());
 </script>
+
+<!-- 添加MathJax支持 -->
+{{ if or .Params.math .Site.Params.article.math }}
+{{ partial "math.html" . }}
+{{ end }}
