@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>碎碎念 on Yaragos's Site</title><link>https://yaragos.top/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/</link><description>Recent content in 碎碎念 on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Mon, 29 Jul 2024 22:21:29 +0800</lastBuildDate><atom:link href="https://yaragos.top/categories/%E7%A2%8E%E7%A2%8E%E5%BF%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>记一次小手术的经历</title><link>https://yaragos.top/p/record-a-surgery/</link><pubDate>Mon, 29 Jul 2024 22:21:29 +0800</pubDate><guid>https://yaragos.top/p/record-a-surgery/</guid><description>&lt;img src="https://yaragos.top/p/record-a-surgery/cover.jpg" alt="Featured image of post 记一次小手术的经历" />&lt;blockquote>
+&lt;p>先从一个多月前说起，耳朵后突然长了个包，红肿，触碰会痛，诊所拿药，网上问诊买药，情况没有好转。半个月前去医院挂门诊外科，做个彩超，医生也不确定是什么玩意，开了三盒中成药和一支药膏，说十几天后没消肿就去做个引流小手术。今天挂了耳鼻喉科，做了个血常规，然后去做囊肿引流手术。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="手术经过">手术经过
+&lt;/h2>&lt;p>医生让我躺着，头偏过去，我看着他在捣鼓着桌上的器械和药,看着那即将扎我的针。&lt;/p>
+&lt;hr>
+&lt;div class="chat --self">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta" style="text-align: right;">&amp;nbsp;&amp;nbsp;&amp;nbsp;我&lt;/div>
+&lt;div class="chat__text">
+医生，打麻药痛吗？
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;div class="chat --other">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta">医生&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div>
+&lt;div class="chat__text">
+痛，就打麻药那一瞬间痛。
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;div class="chat --self">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta" style="text-align: right;">&amp;nbsp;&amp;nbsp;&amp;nbsp;我&lt;/div>
+&lt;div class="chat__text">
+那打麻药的时候告诉我。
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;div class="chat --other">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta">医生&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div>
+&lt;div class="chat__text">
+那怎么能告诉你。
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;hr>
+&lt;p>好吧，就那一瞬间痛。。个屁呀。也不知道他在捣鼓啥，反正我感觉痛了不止十秒，一阵阵的。然后手术开始，其实我以为打了麻药就完全没知觉了，结果还是能感到痛，尤其是他拿也许是棉球的东西用力按压囊肿位置时，挺疼。&lt;/p>
+&lt;div class="chat --self">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta" style="text-align: right;">&amp;nbsp;&amp;nbsp;&amp;nbsp;我&lt;/div>
+&lt;div class="chat__text">
+医生，为什么我还是感觉到疼？
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;div class="chat --other">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta">医生&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div>
+&lt;div class="chat__text">
+对呀，哪里说打了麻药就能不痛了。
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;p style="text-align:center">手术进行中&lt;/p>
+&lt;p>医生突然注意到了我外耳道的血痂，那是一个月前睡觉时耳机和耳塞戴久了蹭破的，后来还意外蹭破过，不过后来结痂了，我就没在意。好心的医生决定帮我处理掉：&lt;/p>
+&lt;div class="notice notice-warning" >
+&lt;div class="notice-title">&lt;svg xmlns="http://www.w3.org/2000/svg" class="icon notice-icon" viewBox="0 0 576 512" fill="hsl(0, 65%, 65%)">&lt;path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6.0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6.0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"/>&lt;/svg>&lt;/div>&lt;p>嗯？这是个什么玩意？&lt;/p>&lt;/div>
+&lt;p>他拿着的不知道是剪子还是镊子，咔嚓咔嚓处理着血痂，我感觉那不是痂而是我的肉，可以肯定的是，血痂粘的很紧，我感觉我的肉被剪下来，这种“痛的发抖”的滋味感谢医生让我重温。&lt;/p>
+&lt;p style="text-align:center">The End&lt;/p>
+&lt;div class="chat --other">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta">医生&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div>
+&lt;div class="chat__text">
+明天记得来换药。
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;div class="chat --self">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta" style="text-align: right;">&amp;nbsp;&amp;nbsp;&amp;nbsp;我&lt;/div>
+&lt;div class="chat__text">
+那我什么时候来？
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;div class="chat --other">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta">医生&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/div>
+&lt;div class="chat__text">
+工作时间，上午九点到十二点，下午两点到五点。
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;hr>
+&lt;p>这工作时间我是真的很羡慕。&lt;/p>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>没有结语，我的碎碎念版块，我想怎样就怎样。明天还要去换药，我还要小心睡觉的时候别把包扎处蹭开。这胶带贴的，都快贴我下巴了，搞得我都不敢左右转头。&lt;/p></description></item></channel></rss>

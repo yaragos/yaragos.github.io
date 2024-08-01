@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Command Line on Yaragos's Site</title><link>https://yaragos.top/tags/command-line/</link><description>Recent content in Command Line on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 24 Jul 2024 13:32:48 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/command-line/index.xml" rel="self" type="application/rss+xml"/><item><title>优雅地搜索命令历史记录</title><link>https://yaragos.top/p/search-command-history-elegantly/</link><pubDate>Wed, 24 Jul 2024 13:32:48 +0800</pubDate><guid>https://yaragos.top/p/search-command-history-elegantly/</guid><description>&lt;img src="https://yaragos.top/p/search-command-history-elegantly/cover.jpg" alt="Featured image of post 优雅地搜索命令历史记录" />&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>&lt;code>history&lt;/code>命令可以显示所有的命令历史记录，但难以查找命令。&lt;br>
+聪明的你当然会想到配合&lt;code>grep&lt;/code>命令进行搜索，可行但效率太低，这样检索不够灵活，要查找记忆模糊的命令还需要正则匹配。&lt;/p>
+&lt;h2 id="模糊搜索命令历史记录">模糊搜索命令历史记录
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/junegunn/fzf" target="_blank" rel="noopener"
+>fzf&lt;/a>是一个交互式命令行模糊搜索工具，可以模糊搜索内容、模糊补全文件路径等，功能强大，更多功能请参考官方文档。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>通过自带的包管理器或&lt;code>homebrew&lt;/code>等第三方包管理器安装即可，参考官方文档安装。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下&lt;code>ctrl+r&lt;/code>组合键，进入命令历史记录搜索模式，输入搜索内容，fzf会自动搜索匹配的命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>ctrl+j&lt;/code>或&lt;code>ctrl+n&lt;/code>向下移动，&lt;code>ctrl+k&lt;/code>或&lt;code>ctrl+p&lt;/code>向上移动，也可以使用方向键或鼠标滚轮，按下回车选中命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下&lt;code>ctrl+g&lt;/code>组合键或&lt;code>Esc&lt;/code>键，退出搜索模式，返回命令行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果你忘了快捷键，可以使用&lt;code>history | fzf&lt;/code>命令，通过管道让&lt;code>fzf&lt;/code>模糊搜索&lt;code>history&lt;/code>的输出内容。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用fzf进行文件路径补全">使用fzf进行文件路径补全
+&lt;/h2>&lt;p>既然提到&lt;code>fzf&lt;/code>，那么顺便介绍一下如何使用它进行文件路径补全。&lt;br>
+当然，默认按&lt;code>tab&lt;/code>键也可以进行补全，但&lt;code>fzf&lt;/code>更好用。&lt;/p>
+&lt;ul>
+&lt;li>如果想补全指定目录下的某个文件名，在指定目录下输入两个星号，然后按下&lt;code>tab&lt;/code>键，就会打开&lt;code>fzf&lt;/code>的交互式界面进行匹配。&lt;/li>
+&lt;li>例：比如想补全&lt;code>~/.config/&lt;/code>下的某个较长的文件名，&lt;code>ls ~/.config/**&lt;/code> ，然后按下&lt;code>tab&lt;/code>键&lt;/li>
+&lt;li>如果想输入某个用户目录下的路径，可以使用快捷键&lt;code>ctrl+t&lt;/code>打开交互式界面，选中后回车上屏。&lt;/li>
+&lt;/ul></description></item></channel></rss>
