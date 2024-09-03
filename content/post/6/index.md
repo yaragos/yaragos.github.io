@@ -33,38 +33,36 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
+# Load a few important annexes, without Turbo (this is currently required for annexes)
 zinit light-mode for \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust
-# 语法高亮
+# syntax highlight
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-syntax-highlighting
-# 自动建议 && 补全
+# auto-suggestion && completion
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
-zinit ice lucid
-zinit light zsh-users/zsh-history-substring-search
 zinit ice lucid blockf
 zinit light zsh-users/zsh-completions
+zinit ice lucid wait="0"
 zinit light Aloxaf/fzf-tab
 # OMZ
-zinit snippet OMZ::lib/completion.zsh
-zinit snippet OMZ::lib/history.zsh
-zinit snippet OMZ::lib/key-bindings.zsh
-zinit snippet OMZ::lib/theme-and-appearance.zsh
-zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
-zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 zinit ice lucid wait='1'
 zinit snippet OMZ::plugins/git/git.plugin.zsh
+zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+# Add `sudo` with <Esc><Esc>
+zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
 # theme
+zinit snippet OMZ::lib/theme-and-appearance.zsh
 zinit snippet OMZ::lib/git.zsh
 zinit snippet OMZ::lib/async_prompt.zsh
 zinit snippet OMZ::plugins/svn/svn.plugin.zsh
 zinit snippet OMZ::themes/ys.zsh-theme
+#
+### End of Zinit's installer chunk
 ```
 
 - zplug 配置

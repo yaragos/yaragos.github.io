@@ -1,5 +1,5 @@
 ---
-title: 'Nushell | 一种很新的shell'
+title: 'Nushell | 跨平台且现代化的shell'
 date: 2024-07-24T15:42:04+08:00
 slug: "nushell-a-new-shell"
 image: "cover.jpg"
@@ -8,7 +8,7 @@ tags:
   - shell
 categories:
   - Linux
-description: 今天看到一个挺现代化的shell，就尝试了一下
+description: 今天了解到一个挺现代化的shell，就尝试了一下
 ---
 
 > 像这样现代的shell,以前听说过fish,也简单尝试过，一种交互式的shell,通过打开浏览器进行配置，方便快捷。
@@ -28,4 +28,4 @@ description: 今天看到一个挺现代化的shell，就尝试了一下
 
 ## 结语
 
-我只是通过brew安装尝试了一下，我之前一直是使用zsh的，配置的挺完美了，而且Nu的语法和zsh不同，配置文件也不在`~`目录而是在`~/.config/nu`，不适合作为我的日用shell。它目前开发还是挺活跃的，期待以后的发展。
+我只是通过brew安装尝试了一下，我之前一直是使用zsh的，配置的挺完美了，而且Nu的配置语法和zsh有些不同，配置文件也不在`~`目录而是在`~/.config/nu`，不适合作为我在 Linux 系统上的常用shell，我觉得可以配合 [Starship](https://starship.rs/) 在Windows上使用。它目前开发还是挺活跃的，期待以后的发展。
