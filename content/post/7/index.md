@@ -1,7 +1,7 @@
 ---
 title: '用 Python 写了个备份脚本'
 date: 2024-09-22T20:50:44+08:00
-# slug: ""
+slug: "a-python-script-for-backup"
 image: "cover.jpg"
 tags:
   - python
