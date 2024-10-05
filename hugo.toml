@@ -1,6 +1,7 @@
 baseurl = "https://yaragos.top/"
 languageCode = "en-us"
-paginate = 5
+# paginate = 5
+pagination.pagerSize = 5
 title = "Yaragos's Site"
 copyright = "Yaragos"
 defaultContentLanguage = "en"
