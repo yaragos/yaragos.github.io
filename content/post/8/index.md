@@ -122,3 +122,5 @@ func (srv *Server) ListenAndServe() error {
 ## 结语
 
 这样，既能够将普通的函数类型（需类型转换）作为参数，也可以将结构体作为参数，使用更为灵活，可读性也更好，这就是接口型函数的价值。
+
+[参考文章](https://geektutu.com/post/7days-golang-q1.html)

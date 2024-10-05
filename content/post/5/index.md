@@ -6,7 +6,7 @@ image: "cover.jpg"
 # tags:
 #   -
 categories:
-  - 碎碎念
+  - mumbles
 description: "第一次手术"
 ---
 
@@ -55,7 +55,6 @@ description: "第一次手术"
 {{< /notice >}}
 
 他拿着的不知道是剪子还是镊子，咔嚓咔嚓处理着血痂，我感觉那不是痂而是我的肉，可以肯定的是，血痂粘的很紧，我感觉我的肉被剪下来，巨痛。
-
 
 {{< align center "The End" >}}
 
