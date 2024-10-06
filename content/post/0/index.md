@@ -21,7 +21,7 @@ weight = 1
 
 ```
 {{</* blockquote author="作者" link="https://www.baidu.com" title="作品名" */>}}
-引用内容,链接可以不写，写的话就带`https://` 开头
+引用内容,作者和链接可以不写，链接要带`https://` 开头
 {{</* /blockquote */>}}
 ```
 

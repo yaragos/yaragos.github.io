@@ -64,7 +64,6 @@ export GLFW_IM_MODULE=ibus
 <kbd>Ctrl</kbd> + <kbd>r</kbd> 搜索历史命令，
 <kbd>Tab</kbd> 键补全命令参数或路径（这个好用）。
 
-
 ### vi mode
 
 - [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
