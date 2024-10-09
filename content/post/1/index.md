@@ -1,6 +1,6 @@
 +++
 title = '为啥我选择 Linux 作为日常工作环境？'
-date = 2024-07-19T18:59:24+08:00
+date = 2023-11-19T18:59:24+08:00
 slug = "why-i-choose-linux-as-my-daily-work-environment"
 image = "cover.jpg"
 tags = [

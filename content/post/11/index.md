@@ -1,6 +1,6 @@
 ---
 title: '读《活着》'
-date: 2024-10-06T13:50:01+08:00
+date: 2024-07-26T13:50:01+08:00
 slug: "reading-living"
 image: "cover.jpg"
 tags:

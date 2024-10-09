@@ -1,6 +1,6 @@
 ---
 title: '我的配置 | 解锁 Linux 终端的最佳体验'
-date: 2024-10-05T21:23:23+08:00
+date: 2024-07-09T21:23:23+08:00
 slug: "unlock-best-experience-of-linux-terminal"
 image: "cover.jpg"
 tags:

@@ -1,6 +1,6 @@
 ---
 title: 'Nushell | 跨平台且现代化的shell'
-date: 2024-07-24T15:42:04+08:00
+date: 2023-12-24T15:42:04+08:00
 slug: "nushell-a-new-shell"
 image: "cover.jpg"
 tags:

@@ -1,6 +1,6 @@
 ---
 title: '用 Python 写了个备份脚本'
-date: 2024-09-22T20:50:44+08:00
+date: 2024-03-22T20:50:44+08:00
 slug: "a-python-script-for-backup"
 image: "cover.jpg"
 tags:
@@ -13,7 +13,7 @@ description: "功能单一，主要为了方便写的小工具。"
 
 ## 前言
 
-> 首先我是通过 [yadm](https://github.com/TheLocehiliosan/yadm) 来管理 dotfiles 的，写这个脚本主要是平时有备份文件的习惯（不仅仅是 dotfiles）。
+> 首先我是通过 [yadm](https://github.com/TheLocehiliosan/yadm) 来管理 dotfiles 的，写这个脚本主要是为了备份 dotfiles,我平时有备份文件的习惯（不仅仅是 dotfiles）。
 
 ## 脚本
 

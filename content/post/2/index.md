@@ -1,6 +1,6 @@
 ---
 title: '优雅地搜索命令历史记录'
-date: 2024-07-24T13:32:48+08:00
+date: 2023-11-24T13:32:48+08:00
 slug: "search-command-history-elegantly"
 image: "cover.jpg"
 tags:

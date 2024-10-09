@@ -1,6 +1,6 @@
 ---
 title: '我博客上的那些短代码'
-date: 2024-07-28T12:11:01+08:00
+date: 2024-01-28T12:11:01+08:00
 slug: "shortcodes-my-blog-use"
 image: "cover.jpg"
 tags:
@@ -107,5 +107,5 @@ This is a tip.
 
 ## Link
 
-- [我参考的这篇文章](https://www.sleepymoon.cyou/2023/hugo-shortcodes/)
+- [参考文章](https://www.sleepymoon.cyou/2023/hugo-shortcodes/)
 - 我挑选了部分我认为有用的shortcode,并对部分进行了修改，有需要的可以去我Github仓库查看源码。

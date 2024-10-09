@@ -1,6 +1,6 @@
 ---
 title: 'Go | 接口型函数'
-date: 2024-10-05T16:03:49+08:00
+date: 2024-05-05T16:03:49+08:00
 slug: "interface-function"
 image: "cover.jpg"
 # tags:

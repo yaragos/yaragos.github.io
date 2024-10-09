@@ -1,6 +1,6 @@
 ---
 title: '读《许三观卖血记》'
-date: 2024-10-05T19:57:33+08:00
+date: 2024-06-05T19:57:33+08:00
 slug: "xu-san-guan-mai-xue-ji"
 image: "cover.png"
 tags:

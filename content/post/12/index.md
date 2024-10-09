@@ -1,6 +1,6 @@
 ---
 title: '为什么我选择 Go 语言'
-date: 2024-10-09T10:45:56+08:00
+date: 2024-08-09T10:45:56+08:00
 slug: "why-i-choose-go"
 image: "cover.jpg"
 tags:

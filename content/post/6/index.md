@@ -1,6 +1,6 @@
 ---
 title: 'zsh插件管理器：从zplug转到zinit'
-date: 2024-08-01T18:09:12+08:00
+date: 2024-02-01T18:09:12+08:00
 slug: "zsh-plugin-manager-from-zplug-to-zinit"
 image: "cover.jpg"
 tags:
