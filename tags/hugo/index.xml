@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on Yaragos's Site</title><link>https://yaragos.top/tags/hugo/</link><description>Recent content in Hugo on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 09 Oct 2024 18:01:24 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>我博客上的那些短代码</title><link>https://yaragos.top/p/shortcodes-my-blog-use/</link><pubDate>Sun, 28 Jan 2024 12:11:01 +0800</pubDate><guid>https://yaragos.top/p/shortcodes-my-blog-use/</guid><description>&lt;img src="https://yaragos.top/p/shortcodes-my-blog-use/cover.jpg" alt="Featured image of post 我博客上的那些短代码" />&lt;h2 id="short-code">Short Code
+&lt;/h2>&lt;abbr title="缩写内容">缩写（鼠标放上来查看）&lt;/abbr>
+&lt;hr>
+&lt;p>&lt;p style="text-align:left">文字居左&lt;/p>
+&lt;br>
+&lt;p style="text-align:center">文字居中&lt;/p>
+&lt;br>
+&lt;p style="text-align:right">文字居右&lt;/p>
+&lt;/p>
+&lt;hr>
+&lt;p>
+&lt;div class="chat --other">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta">Alice&amp;nbsp;&amp;nbsp;&amp;nbsp;2023-07-01 12:00&lt;/div>
+&lt;div class="chat__text">
+Left message.
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;br>
+&lt;div class="chat --self">
+&lt;div class="chat__inner">
+&lt;div class="chat__meta" style="text-align: right;">2024-07-01 12:01&amp;nbsp;&amp;nbsp;&amp;nbsp;Bob&lt;/div>
+&lt;div class="chat__text">
+Right message.
+&lt;/div>
+&lt;/div>
+&lt;/div>
+&lt;style>
+.chat {
+margin: 10px;
+padding: 10px;
+position: relative;
+transition: transform 0.2s;
+max-width: 80%;
+min-width: 15%;
+}
+.chat:hover {
+transform: scale(1.05);
+}
+.chat.--self {
+text-align: left;
+background-color: #ecf5ff;
+color: #000000;
+border-radius: 15px;
+width: fit-content;
+margin-left: auto;
+}
+.chat.--self::before {
+content: "";
+position: absolute;
+right: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 0 0 20px;
+border-style: solid;
+border-color: transparent transparent transparent #ecf5ff;
+}
+.chat.--other {
+text-align: left;
+background-color: #ffecec;
+color: #333;
+border-radius: 15px;
+position: relative;
+width: fit-content;
+}
+.chat.--other::before {
+content: "";
+position: absolute;
+left: -18px;
+bottom: 5px;
+transform: translateY(-50%);
+border-width: 15px 20px 0 0;
+border-style: solid;
+border-color: transparent #ffecec transparent transparent;
+}
+.chat__meta {
+font-weight: bold;
+font-size: 0.67em;
+color: #707070;
+margin-bottom: 5px;
+}
+.chat__text {
+font-size: 0.9em;
+margin-left: 10px;
+word-break: break-all;
+}
+[data-scheme="dark"] {
+.chat.--self {
+color: #fefefe;
+background-color: #253958;
+}
+.chat.--self::before {
+border-color: transparent transparent transparent #253958;
+}
+.chat.--other {
+color: #fefefe;
+background-color: #1a1a1a;
+}
+.chat.--other::before {
+border-color: transparent #1a1a1a transparent transparent;
+}
+.chat__meta {
+color: #b1b1b1;
+}
+}
+&lt;/style>
+&lt;/p>
+&lt;hr>
+&lt;p>&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake">这是基本的摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-hard">这个段落有剧烈摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-slow">这个段落有慢速摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-little">这个段落有轻微摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-horizontal">这个段落有水平摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-vertical">这个段落有垂直摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-rotate">这个段落有旋转摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-opacity">这个段落有透明度变化摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-crazy">这个段落有疯狂摇晃效果。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-freeze">这个段落在悬停时冻结。&lt;/div>&lt;br>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/csshake/1.5.3/csshake.min.css" />
+&lt;div class="shake shake-constant">这个段落持续摇晃。&lt;/div>&lt;/p>
+&lt;hr>
+&lt;p>&lt;font class="colorfulfont">文字颜色渐变&lt;br>第二行222222&lt;br>第三行3333333333&lt;/font>&lt;/p>
+&lt;hr>
+&lt;blockquote>
+&lt;p>这是引用内容&lt;/p>
+&lt;footer style="text-align:right">
+&lt;strong>作者&lt;/strong>
+&lt;cite>
+&lt;a href="https://www.baidu.com" title="https://www.baidu.com" rel="noopener noreferrer">作品名（点击跳转）&lt;/a>
+&lt;/cite>
+&lt;/footer>
+&lt;/blockquote>
+&lt;blockquote class="quote-center"> &lt;/p>&lt;p>这是居中引用&lt;br>
+第二行&lt;/p>&lt;/blockquote>
+&lt;hr>
+&lt;p>键盘按键：&lt;kbd>Ctrl&lt;/kbd>+&lt;kbd>Alt&lt;/kbd>+&lt;kbd>`&lt;/kbd>&lt;/p>
+&lt;hr>
+&lt;p>打分：&lt;span class="star-rating">&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star-outline">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;i class="star-outline">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">&lt;path d="M381.2 150.3L524.9 171.5C536.8 173.2 546.8 181.6 550.6 193.1C554.4 204.7 551.3 217.3 542.7 225.9L438.5 328.1L463.1 474.7C465.1 486.7 460.2 498.9 450.2 506C440.3 513.1 427.2 514 416.5 508.3L288.1 439.8L159.8 508.3C149 514 135.9 513.1 126 506C116.1 498.9 111.1 486.7 113.2 474.7L137.8 328.1L33.58 225.9C24.97 217.3 21.91 204.7 25.69 193.1C29.46 181.6 39.43 173.2 51.42 171.5L195 150.3L259.4 17.97C264.7 6.954 275.9-.0391 288.1-.0391C300.4-.0391 311.6 6.954 316.9 17.97L381.2 150.3z"/>&lt;/svg>&lt;/i>&lt;/span>
+&lt;/p>
+&lt;hr>
+&lt;div class="mycard">
+&lt;div class="content"> 这里是卡片内容&lt;br>
+不能插入图片 &lt;/div>
+&lt;/div>
+&lt;hr>
+&lt;div class="notice notice-warning" >
+&lt;div class="notice-title">&lt;svg xmlns="http://www.w3.org/2000/svg" class="icon notice-icon" viewBox="0 0 576 512" fill="hsl(0, 65%, 65%)">&lt;path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zM124 296c-6.6.0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h264c6.6.0 12 5.4 12 12v56c0 6.6-5.4 12-12 12H124z"/>&lt;/svg>&lt;/div>&lt;p>This is a warning.&lt;/p>&lt;/div>
+&lt;div class="notice notice-info" >
+&lt;div class="notice-title">&lt;svg xmlns="http://www.w3.org/2000/svg" class="icon notice-icon" viewBox="0 0 512 512" fill="hsl(30, 80%, 70%)">&lt;path d="M256 8a248 248 0 100 496 248 248 0 000-496zm0 110a42 42 0 110 84 42 42 0 010-84zm56 254c0 7-5 12-12 12h-88c-7 0-12-5-12-12v-24c0-7 5-12 12-12h12v-64h-12c-7 0-12-5-12-12v-24c0-7 5-12 12-12h64c7 0 12 5 12 12v100h12c7 0 12 5 12 12v24z"/>&lt;/svg>&lt;/div>&lt;p>This is a info.&lt;/p>&lt;/div>
+&lt;div class="notice notice-note" >
+&lt;div class="notice-title">&lt;svg xmlns="http://www.w3.org/2000/svg" class="icon notice-icon" viewBox="0 0 512 512" fill="hsl(200, 65%, 65%)">&lt;path d="M504 256a248 248 0 11-496 0 248 248 0 01496 0zm-248 50a46 46 0 100 92 46 46 0 000-92zm-44-165l8 136c0 6 5 11 12 11h48c7 0 12-5 12-11l8-136c0-7-5-13-12-13h-64c-7 0-12 6-12 13z"/>&lt;/svg>&lt;/div>&lt;p>This is a note.&lt;/p>&lt;/div>
+&lt;div class="notice notice-tip" >
+&lt;div class="notice-title">&lt;svg xmlns="http://www.w3.org/2000/svg" class="icon notice-icon" viewBox="0 0 512 512" fill="hsl(140, 65%, 65%)">&lt;path d="M504 256a248 248 0 11-496 0 248 248 0 01496 0zM227 387l184-184c7-6 7-16 0-22l-22-23c-7-6-17-6-23 0L216 308l-70-70c-6-6-16-6-23 0l-22 23c-7 6-7 16 0 22l104 104c6 7 16 7 22 0z"/>&lt;/svg>&lt;/div>&lt;p>This is a tip.&lt;/p>&lt;/div>
+&lt;details>
+&lt;summary>展开看内容&lt;/summary>
+内容
+&lt;/details>
+&lt;hr>
+&lt;p>高斯模糊效果（鼠标放上去查看）:&lt;br>
+&lt;span class="blur">帅到模糊&lt;/span>&lt;/p>
+&lt;hr>
+&lt;ul>
+&lt;li>轮播图&lt;/li>
+&lt;/ul>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+&lt;div class="swiper-container">
+&lt;div class="swiper-wrapper">
+&lt;div class="swiper-slide">
+&lt;img src="1.jpg" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="2.jpg" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="3.jpg" alt="">
+&lt;/div>
+&lt;/div>
+&lt;div class="swiper-pagination">&lt;/div>
+&lt;/div>
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js">&lt;/script>
+&lt;script>
+var swiper = new Swiper('.swiper-container', {
+pagination: '.swiper-pagination',
+paginationClickable: true,
+autoHeight: true,
+keyboardControl : true,
+mousewheelControl : true,
+autoplay : 5000,
+lazyLoading : true,
+lazyLoadingInPrevNext : true,
+loop : true,
+});
+&lt;/script>
+&lt;h2 id="link">Link
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://www.sleepymoon.cyou/2023/hugo-shortcodes/" target="_blank" rel="noopener"
+>参考文章&lt;/a>&lt;/li>
+&lt;li>我挑选了部分我认为有用的shortcode,并对部分进行了修改，有需要的可以去我Github仓库查看源码。&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on Yaragos's Site</title><link>https://yaragos.top/tags/linux/</link><description>Recent content in Linux on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 09 Oct 2024 18:01:24 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Nushell | 跨平台且现代化的shell</title><link>https://yaragos.top/p/nushell-a-new-shell/</link><pubDate>Sun, 24 Dec 2023 15:42:04 +0800</pubDate><guid>https://yaragos.top/p/nushell-a-new-shell/</guid><description>&lt;img src="https://yaragos.top/p/nushell-a-new-shell/cover.jpg" alt="Featured image of post Nushell | 跨平台且现代化的shell" />&lt;blockquote>
+&lt;p>像这样现代的shell,以前听说过fish,也简单尝试过，一种交互式的shell,通过打开浏览器进行配置，方便快捷。&lt;br>
+今天看到这样一种新颖的shell,就体验了一下，它Github还挺多start的，Rust语言编写，跨平台，文档有中文，太友好了。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="overview">Overview
+&lt;/h2>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+&lt;div class="swiper-container">
+&lt;div class="swiper-wrapper">
+&lt;div class="swiper-slide">
+&lt;img src="image.png" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="image1.png" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="image2.png" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="image3.png" alt="">
+&lt;/div>
+&lt;/div>
+&lt;div class="swiper-pagination">&lt;/div>
+&lt;/div>
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js">&lt;/script>
+&lt;script>
+var swiper = new Swiper('.swiper-container', {
+pagination: '.swiper-pagination',
+paginationClickable: true,
+autoHeight: true,
+keyboardControl : true,
+mousewheelControl : true,
+autoplay : 5000,
+lazyLoading : true,
+lazyLoadingInPrevNext : true,
+loop : true,
+});
+&lt;/script>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.nushell.sh/zh-CN/" target="_blank" rel="noopener"
+>官网：https://www.nushell.sh/zh-CN/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/nushell/nushell" target="_blank" rel="noopener"
+>Github：https://github.com/nushell/nushell&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nushell 有许多不同与bash这类传统shell的特性（看官网感觉挺深奥的）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>开箱即用，自带了历史命令，自动补全，语法高亮，清晰的错误提示，彩色输出等功能。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nushell 通过管道传递结构化数据，并且通过内置命令很方便地进行排序和过滤数据，而不需要像传统shell那样用awk,sed,grep等命令来解析字符串，让使用者专注于解决问题本身而不需要花过多心思去处理数据。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>内置命令挺多，像ls,cd等基础命令它都内置了，ls输出格式挺美观。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>我只是通过brew安装尝试了一下，我之前一直是使用zsh的，配置的挺完美了，而且Nu的配置语法和zsh有些不同，配置文件也不在&lt;code>~&lt;/code>目录而是在&lt;code>~/.config/nu&lt;/code>，不适合作为我在 Linux 系统上的常用shell，我觉得可以配合 &lt;a class="link" href="https://starship.rs/" target="_blank" rel="noopener"
+>Starship&lt;/a> 在Windows上使用。它目前开发还是挺活跃的，期待以后的发展。&lt;/p></description></item><item><title>优雅地搜索命令历史记录</title><link>https://yaragos.top/p/search-command-history-elegantly/</link><pubDate>Fri, 24 Nov 2023 13:32:48 +0800</pubDate><guid>https://yaragos.top/p/search-command-history-elegantly/</guid><description>&lt;img src="https://yaragos.top/p/search-command-history-elegantly/cover.jpg" alt="Featured image of post 优雅地搜索命令历史记录" />&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>&lt;code>history&lt;/code>命令可以显示所有的命令历史记录，但难以查找命令。&lt;br>
+聪明的你当然会想到配合&lt;code>grep&lt;/code>命令进行搜索，可行但效率太低，这样检索不够灵活，要查找记忆模糊的命令还需要正则匹配。&lt;/p>
+&lt;h2 id="模糊搜索命令历史记录">模糊搜索命令历史记录
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/junegunn/fzf" target="_blank" rel="noopener"
+>fzf&lt;/a>是一个交互式命令行模糊搜索工具，可以模糊搜索内容、模糊补全文件路径等，功能强大，更多功能请参考官方文档。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>通过自带的包管理器或&lt;code>homebrew&lt;/code>等第三方包管理器安装即可，参考官方文档安装。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下&lt;code>ctrl+r&lt;/code>组合键，进入命令历史记录搜索模式，输入搜索内容，fzf会自动搜索匹配的命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>ctrl+j&lt;/code>或&lt;code>ctrl+n&lt;/code>向下移动，&lt;code>ctrl+k&lt;/code>或&lt;code>ctrl+p&lt;/code>向上移动，也可以使用方向键或鼠标滚轮，按下回车选中命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下&lt;code>ctrl+g&lt;/code>组合键或&lt;code>Esc&lt;/code>键，退出搜索模式，返回命令行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果你忘了快捷键，可以使用&lt;code>history | fzf&lt;/code>命令，通过管道让&lt;code>fzf&lt;/code>模糊搜索&lt;code>history&lt;/code>的输出内容。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用fzf进行文件路径补全">使用fzf进行文件路径补全
+&lt;/h2>&lt;p>既然提到&lt;code>fzf&lt;/code>，那么顺便介绍一下如何使用它进行文件路径补全。&lt;br>
+当然，默认按&lt;code>tab&lt;/code>键也可以进行补全，但&lt;code>fzf&lt;/code>更好用。&lt;/p>
+&lt;ul>
+&lt;li>如果想补全指定目录下的某个文件名，在指定目录下输入两个星号，然后按下&lt;code>tab&lt;/code>键，就会打开&lt;code>fzf&lt;/code>的交互式界面进行匹配。&lt;/li>
+&lt;li>例：比如想补全&lt;code>~/.config/&lt;/code>下的某个较长的文件名，&lt;code>ls ~/.config/**&lt;/code> ，然后按下&lt;code>tab&lt;/code>键&lt;/li>
+&lt;li>如果想输入某个用户目录下的路径，可以使用快捷键&lt;code>ctrl+t&lt;/code>打开交互式界面，选中后回车上屏。&lt;/li>
+&lt;/ul></description></item><item><title>为啥我选择 Linux 作为日常工作环境？</title><link>https://yaragos.top/p/why-i-choose-linux-as-my-daily-work-environment/</link><pubDate>Sun, 19 Nov 2023 18:59:24 +0800</pubDate><guid>https://yaragos.top/p/why-i-choose-linux-as-my-daily-work-environment/</guid><description>&lt;img src="https://yaragos.top/p/why-i-choose-linux-as-my-daily-work-environment/cover.jpg" alt="Featured image of post 为啥我选择 Linux 作为日常工作环境？" />&lt;blockquote>
+&lt;p>主要尝试了deb系比如debian, deepin, zorin, mint等以及arch系比如Manjaro, EndeavourOS等，桌面环境只尝试了Gnome和KDE,没尝试过各种WM。目前一直在用mint,它的Cinnamon桌面挺好用。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="why">why
+&lt;/h2>&lt;ol>
+&lt;li>轻量，开机后占用内存很少，速度快，当初win11有时候拖动窗口都会卡顿，打开个IDE加载七八秒，实在用不下去。&lt;/li>
+&lt;li>环境配置方便，安装和卸载软件也很方便，不像win&amp;hellip;&lt;/li>
+&lt;li>我不打游戏。&lt;/li>
+&lt;/ol>
+&lt;h2 id="软件安装">软件安装
+&lt;/h2>&lt;p>像 git, vim 这些用apt安装就行（推荐&lt;code>nala&lt;/code>，一个更好看的apt）；&lt;br>
+像WPS, vscode 和 QQ, 微信等可以通过&lt;a class="link" href="https://gitee.com/spark-store-project/spark-store" target="_blank" rel="noopener"
+>星火应用商店&lt;/a>安装；&lt;br>
+第三方包管理工具推荐&lt;a class="link" href="https://brew.sh/" target="_blank" rel="noopener"
+>homebrew&lt;/a>，挺多软件都可以用它安装，像docker, mysql, 还有各种开发环境；&lt;br>
+部分软件就下载二进制文件安装，或者自己编译。&lt;/p>
+&lt;h2 id="开发环境搭建和管理">开发环境搭建和管理
+&lt;/h2>&lt;p>主流语言环境直接brew安装就行，apt也行，就是版本旧了点。&lt;br>
+开发环境的版本管理：node版本管理当然是大名鼎鼎的nvm,不过我目前用的是fnm,更轻量更快；golang版本管理就gvm;java版本管理就sdkman(sdkman不止管理jdk还有maven等)。&lt;/p>
+&lt;p>其实我就node切换管理频繁些，go就一个版本就够用了，像jdk,maven,maven,tomcat我就把常用的版本放在&lt;code>~/env&lt;/code>目录下，在IDE中选择对应环境就行。&lt;/p>
+&lt;h2 id="改键">改键
+&lt;/h2>&lt;p>为什么我要单独开个小标题讲这个呢？&lt;/p>
+&lt;p>首先对于主流配列我习惯交换左&lt;code>Ctrl&lt;/code>和&lt;code>Caps Lock&lt;/code>键，并且由于常用vim，我会设置&lt;code>Caps Lock&lt;/code>键单独按是&lt;code>Esc&lt;/code>组合按是&lt;code>Ctrl&lt;/code>；且对于60%配列键盘要交换&lt;kbd>`&lt;/kbd>和&lt;kbd>Esc&lt;/kbd>而80%配列键盘不交换。因为这些改键需求，我理想中的改键软件是能根据不同键盘设备使用不同的键位映射且能够实现较为复杂的映射。&lt;/p>
+&lt;p>如此苛刻的条件，我只发现&lt;a class="link" href="https://github.com/rvaiya/keyd" target="_blank" rel="noopener"
+>keyd&lt;/a>能满足我的要求，它是内核级别的改键，在x11和wayland下都能工作，通过编辑配置文件的配置方式便于我迁移配置。但它只支持Linux，唉，Mac这键位也是难受。&lt;/p>
+&lt;p>键盘这块，我的想法是以后整把支持via的70%配列键盘，弥补改键软件这方面的空缺，让不同平台的体验尽量一致。&lt;/p></description></item></channel></rss>
