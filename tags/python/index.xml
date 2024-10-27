@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on Yaragos's Site</title><link>https://yaragos.top/tags/python/</link><description>Recent content in Python on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 09 Oct 2024 18:01:24 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>用 Python 写了个备份脚本</title><link>https://yaragos.top/p/a-python-script-for-backup/</link><pubDate>Fri, 22 Mar 2024 20:50:44 +0800</pubDate><guid>https://yaragos.top/p/a-python-script-for-backup/</guid><description>&lt;img src="https://yaragos.top/p/a-python-script-for-backup/cover.jpg" alt="Featured image of post 用 Python 写了个备份脚本" />&lt;h2 id="前言">前言
+&lt;/h2>&lt;blockquote>
+&lt;p>首先我是通过 &lt;a class="link" href="https://github.com/TheLocehiliosan/yadm" target="_blank" rel="noopener"
+>yadm&lt;/a> 来管理 dotfiles 的，写这个脚本主要是为了备份 dotfiles,我平时有备份文件的习惯（不仅仅是 dotfiles）。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="脚本">脚本
+&lt;/h2>&lt;ul>
+&lt;li>贴个地址：&lt;a class="link" href="https://github.com/yaragos/dotbak" target="_blank" rel="noopener"
+>dotbak&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>具体怎么使用就不介绍了，README 里面有详细的说明。&lt;br>
+主要是不需要什么第三方库， 几十行就够了。&lt;/p>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>备份文件是个好习惯，我有个移动硬盘，平时用来拷贝视频资料（主要是我目前这电脑双系统，不想浪费宝贵的磁盘空间）和一些其他资料（比如一些软件包和字体、壁纸等）。&lt;/p></description></item></channel></rss>

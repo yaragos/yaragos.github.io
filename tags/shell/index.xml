@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shell on Yaragos's Site</title><link>https://yaragos.top/tags/shell/</link><description>Recent content in Shell on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 09 Oct 2024 18:01:24 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>Nushell | 跨平台且现代化的shell</title><link>https://yaragos.top/p/nushell-a-new-shell/</link><pubDate>Sun, 24 Dec 2023 15:42:04 +0800</pubDate><guid>https://yaragos.top/p/nushell-a-new-shell/</guid><description>&lt;img src="https://yaragos.top/p/nushell-a-new-shell/cover.jpg" alt="Featured image of post Nushell | 跨平台且现代化的shell" />&lt;blockquote>
+&lt;p>像这样现代的shell,以前听说过fish,也简单尝试过，一种交互式的shell,通过打开浏览器进行配置，方便快捷。&lt;br>
+今天看到这样一种新颖的shell,就体验了一下，它Github还挺多start的，Rust语言编写，跨平台，文档有中文，太友好了。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="overview">Overview
+&lt;/h2>
+&lt;link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.min.css">
+&lt;div class="swiper-container">
+&lt;div class="swiper-wrapper">
+&lt;div class="swiper-slide">
+&lt;img src="image.png" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="image1.png" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="image2.png" alt="">
+&lt;/div>
+&lt;div class="swiper-slide">
+&lt;img src="image3.png" alt="">
+&lt;/div>
+&lt;/div>
+&lt;div class="swiper-pagination">&lt;/div>
+&lt;/div>
+&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.min.js">&lt;/script>
+&lt;script>
+var swiper = new Swiper('.swiper-container', {
+pagination: '.swiper-pagination',
+paginationClickable: true,
+autoHeight: true,
+keyboardControl : true,
+mousewheelControl : true,
+autoplay : 5000,
+lazyLoading : true,
+lazyLoadingInPrevNext : true,
+loop : true,
+});
+&lt;/script>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://www.nushell.sh/zh-CN/" target="_blank" rel="noopener"
+>官网：https://www.nushell.sh/zh-CN/&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;a class="link" href="https://github.com/nushell/nushell" target="_blank" rel="noopener"
+>Github：https://github.com/nushell/nushell&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nushell 有许多不同与bash这类传统shell的特性（看官网感觉挺深奥的）。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>开箱即用，自带了历史命令，自动补全，语法高亮，清晰的错误提示，彩色输出等功能。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nushell 通过管道传递结构化数据，并且通过内置命令很方便地进行排序和过滤数据，而不需要像传统shell那样用awk,sed,grep等命令来解析字符串，让使用者专注于解决问题本身而不需要花过多心思去处理数据。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>内置命令挺多，像ls,cd等基础命令它都内置了，ls输出格式挺美观。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>我只是通过brew安装尝试了一下，我之前一直是使用zsh的，配置的挺完美了，而且Nu的配置语法和zsh有些不同，配置文件也不在&lt;code>~&lt;/code>目录而是在&lt;code>~/.config/nu&lt;/code>，不适合作为我在 Linux 系统上的常用shell，我觉得可以配合 &lt;a class="link" href="https://starship.rs/" target="_blank" rel="noopener"
+>Starship&lt;/a> 在Windows上使用。它目前开发还是挺活跃的，期待以后的发展。&lt;/p></description></item></channel></rss>

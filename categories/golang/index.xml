@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Golang on Yaragos's Site</title><link>https://yaragos.top/categories/golang/</link><description>Recent content in Golang on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><atom:link href="https://yaragos.top/categories/golang/index.xml" rel="self" type="application/rss+xml"/><item><title>Go 切片增长策略</title><link>https://yaragos.top/p/slice-grow-strategy-in-go/</link><pubDate>Sat, 17 Aug 2024 19:57:40 +0800</pubDate><guid>https://yaragos.top/p/slice-grow-strategy-in-go/</guid><description>&lt;img src="https://yaragos.top/p/slice-grow-strategy-in-go/cover.jpg" alt="Featured image of post Go 切片增长策略" />&lt;h2 id="前言">前言
+&lt;/h2>&lt;blockquote>
+&lt;p>起因是一篇文章提到 Go 的切片扩容策略是“容量小于 1024 时，容量翻倍；容量大于等于 1024 时，容量增加 25%”。而我本地测试后与作者得出结论不同，故而上网搜寻资料。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="正文">正文
+&lt;/h2>&lt;ul>
+&lt;li>我尝试输出当切片长度从0增加到2000时，切片的容量变化情况，代码如下：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kn">package&lt;/span> &lt;span class="nx">main&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kn">import&lt;/span> &lt;span class="p">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="s">&amp;#34;fmt&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">slice&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="p">[]&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="p">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;[INIT] len=&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="s">&amp;#34;cap=&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">cap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">preCap&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nb">cap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span> &lt;span class="o">&amp;lt;=&lt;/span> &lt;span class="mi">2000&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="nx">i&lt;/span>&lt;span class="o">++&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">slice&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="nb">append&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">i&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">preCap&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="nb">cap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Println&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;len=&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">len&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">),&lt;/span> &lt;span class="s">&amp;#34;cap=&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nb">cap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">preCap&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="nb">cap&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">slice&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>运行结果如下：&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">[INIT] len= 0 cap = 0
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 1 cap= 1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 2 cap= 2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 3 cap= 4
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 5 cap= 8
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 9 cap= 16
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 17 cap= 32
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 33 cap= 64
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 65 cap= 128
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 129 cap= 256
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 257 cap= 512
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 513 cap= 848
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 849 cap= 1280
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 1281 cap= 1792
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">len= 1793 cap= 2560
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这显然不符合我在文章中看到的策略，找到一篇文章，其中提到 1.18 版本后策略如下：&lt;/p>
+&lt;div class="mycard">
+&lt;div class="content"> 当原slice容量(oldcap)小于256的时候，新slice(newcap)容量为原来的2倍；&lt;br>
+原slice容量超过256，新slice容量 $newcap = oldcap+(oldcap+3*256)/4$。 &lt;/div>
+&lt;/div>
+&lt;p>这才对上了。&lt;br>
+关于这个策略的实现，在 &lt;a class="link" href="https://github.com/golang/go/blob/889abb17e125bb0f5d8de61bb80ef15fbe2a130d/src/runtime/slice.go#L177" target="_blank" rel="noopener"
+>src/runtime/slice.go&lt;/a> 的 &lt;code>growslice&lt;/code> 函数，目前源码中的乘除运算已经被替换成了位运算，所以看起来比较复杂。&lt;/p>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>&lt;a class="link" href="https://golang.design/go-questions/slice/grow/" target="_blank" rel="noopener"
+>参考文章&lt;/a>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>在查找资料的过程中发现，哪怕是 1.18 以前的版本，在容量超过 1024 后，也不是严格按照 25% 增长，因为计算出 newcap 后，作了一个&lt;strong>内存对齐&lt;/strong>，这和内存分配策略相关。最后的容量会大于等于基于前面计算得出的 newcap.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>切片扩容的策略优化后，$newcap=oldcap+(oldcap+3*256)/4$, 通过添加一个常量让底层数组大小的增长更加平滑。&lt;/p>
+&lt;/li>
+&lt;/ul></description></item><item><title>为什么我选择 Go 语言</title><link>https://yaragos.top/p/why-i-choose-go/</link><pubDate>Fri, 09 Aug 2024 10:45:56 +0800</pubDate><guid>https://yaragos.top/p/why-i-choose-go/</guid><description>&lt;img src="https://yaragos.top/p/why-i-choose-go/cover.jpg" alt="Featured image of post 为什么我选择 Go 语言" />&lt;blockquote>
+&lt;p>上手 Go 的最大感受是它的简洁和一致性，看起来像 C 和 Python 的结合体，但又不失严谨性。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="heading">{}
+&lt;/h2>&lt;p>Go 的 &lt;code>if&lt;/code> 和 &lt;code>for&lt;/code> 语句必须用 &lt;code>{}&lt;/code> 包裹，且必须紧跟 &lt;code>{&lt;/code>，不能像 C 系语言那样另起一行。&lt;br>
+这样的设计让代码层次更清晰，同时限制了代码风格，让代码看起来更一致。&lt;/p>
+&lt;p>我个人认为编程语言的设计上就应该限制代码风格，让不同的程序员写出一致的代码，这样才能让代码更易读、易维护。&lt;/p>
+&lt;p>另外声明变量使用 var，定义函数使用 func 等，同样让代码更一致。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="nx">ok&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nf">check&lt;/span>&lt;span class="p">();&lt;/span> &lt;span class="nx">ok&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// do something
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// do something else
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="简短的命名">简短的命名
+&lt;/h2>&lt;p>点名 Java，一堆嵌套的 package 和长长的类名和方法名，让人头大。&lt;br>
+再看 Go 源码中一些变量和函数的命令，简洁明了。&lt;/p>
+&lt;p>&lt;code>len()&lt;/code> &lt;code>cap()&lt;/code> &lt;code>prev&lt;/code> &lt;code>ctx&lt;/code>&lt;/p>
+&lt;p>这些变量不是很容易看出全称吗？不明白 Java 源码中为什么命名要写上完整的单词。&lt;/p>
+&lt;h2 id="符号美学">符号美学
+&lt;/h2>&lt;p>&lt;code>:=&lt;/code> 声明并赋值&lt;/p>
+&lt;p>&lt;code>[]&lt;/code> 切片、数组、map、泛型&lt;/p>
+&lt;p>&lt;code>...&lt;/code> 可变参数、切片展开&lt;/p>
+&lt;p>&lt;code>&amp;lt;-&lt;/code> channel 操作符&lt;/p>
+&lt;h2 id="自动分号插入机制">自动分号插入机制
+&lt;/h2>&lt;p>&lt;a class="link" href="https://go.dev/ref/spec#Semicolons" target="_blank" rel="noopener"
+>Go 官方说明&lt;/a>&lt;/p>
+&lt;div class="mycard">
+&lt;div class="content">&lt;p>The formal syntax uses semicolons &amp;ldquo;;&amp;rdquo; as terminators in a number of productions. Go programs may omit most of these semicolons using the following two rules:&lt;/p>
+&lt;ol>
+&lt;li>When the input is broken into tokens, a semicolon is automatically inserted into the token stream immediately after a line&amp;rsquo;s final token if that token is&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>an identifier&lt;/li>
+&lt;li>an integer, floating-point, imaginary, rune, or string literal&lt;/li>
+&lt;li>one of the keywords break, continue, fallthrough, or return&lt;/li>
+&lt;li>one of the operators and punctuation ++, &amp;ndash;, ), ], or }&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>To allow complex statements to occupy a single line, a semicolon may be omitted before a closing &amp;ldquo;)&amp;rdquo; or &amp;ldquo;}&amp;rdquo;.&lt;/li>
+&lt;/ol>
+&lt;p>To reflect idiomatic use, code examples in this document elide semicolons using these rules.&lt;/p>&lt;/div>
+&lt;/div>
+&lt;p>Go 语言自动添加分号的规则:&lt;/p>
+&lt;p>Go 编译器会在词法分析阶段（lexical analysis）进行自动分号插入。 其核心规则是：如果一行代码的结尾符合特定条件，则在该行结尾处自动插入一个分号。 这些条件主要包括：&lt;/p>
+&lt;ul>
+&lt;li>行尾是标识符: 变量名、函数名等&lt;/li>
+&lt;li>行尾是字面量: 整数、浮点、虚数、rune、string 字面量&lt;/li>
+&lt;li>行尾是关键词: 某些特定的关键词，例如 break、continue、fallthrough 或 return&lt;/li>
+&lt;li>行尾是运算符或分隔符: 某些特定的运算符或分隔符，例如 ++、&amp;ndash;、)、] 或 }&lt;/li>
+&lt;/ul>
+&lt;p>以上规则导致 &lt;code>{&lt;/code> 必须紧跟在语句或声明之后，否则 Go 编译器会自动在 &lt;code>{&lt;/code> 前插入分号，导致报错。&lt;br>
+通过限制分号的省略，Go 语言鼓励程序员采用一种更规范、更易于阅读的代码风格。 这使得 Go 代码更易于维护和协作。&lt;/p>
+&lt;h2 id="gofmt">gofmt
+&lt;/h2>&lt;p>gofmt 工具强制代码格式，保证了所有 Go 代码风格的一致性，提高了代码的可读性和可维护性。&lt;br>
+虽然这在一定程度上限制了程序员的自由，但从整体项目代码风格统一的角度来看，这种强制性是值得的。&lt;/p>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>结语。&lt;/p></description></item><item><title>Go | 接口型函数</title><link>https://yaragos.top/p/interface-function/</link><pubDate>Sun, 05 May 2024 16:03:49 +0800</pubDate><guid>https://yaragos.top/p/interface-function/</guid><description>&lt;img src="https://yaragos.top/p/interface-function/cover.jpg" alt="Featured image of post Go | 接口型函数" />&lt;blockquote>
+&lt;p>以下均摘自 Go 源码 &lt;a class="link" href="https://github.com/golang/go/blob/master/src/net/http/server.go" target="_blank" rel="noopener"
+>go/src/net/http/server.go&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="接口型函数">接口型函数
+&lt;/h2>&lt;ul>
+&lt;li>以下代码中，定义了 &lt;code>HandlerFunc&lt;/code> 函数类型，该类型的参数和返回值与 &lt;code>Handler&lt;/code> 接口中的 &lt;code>ServeHTTP&lt;/code> 是一致的，并绑定了 &lt;code>ServeHTTP&lt;/code> 方法，在该方法中调用自己，从而实现了 &lt;code>Handler&lt;/code> 接口。像这样实现了接口的函数类型，简称为接口型函数&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">type&lt;/span> &lt;span class="nx">Handler&lt;/span> &lt;span class="kd">interface&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">ServeHTTP&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// The HandlerFunc type is an adapter to allow the use of
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// ordinary functions as HTTP handlers. If f is a function
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// with the appropriate signature, HandlerFunc(f) is a
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// [Handler] that calls f.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">type&lt;/span> &lt;span class="nx">HandlerFunc&lt;/span> &lt;span class="kd">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// ServeHTTP calls f(w, r).
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">f&lt;/span> &lt;span class="nx">HandlerFunc&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">ServeHTTP&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span> &lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">r&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nf">f&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">r&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="接口型函数作为参数">接口型函数作为参数
+&lt;/h2>&lt;ul>
+&lt;li>通常有以下两种方式来映射请求路径和处理函数&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 使用 http.HandleFunc()
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="nf">handler&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">r&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Fprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;Hello, %s!&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">r&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">URL&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Path&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 映射根路径 &amp;#34;/&amp;#34; 到 handler 函数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">HandleFunc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 映射 &amp;#34;/hello&amp;#34; 到 handler 函数
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">HandleFunc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/hello&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 监听 8080 端口
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">ListenAndServe&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;:8080&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">nil&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// 使用 http.Handle()
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">type&lt;/span> &lt;span class="nx">customHandler&lt;/span> &lt;span class="kd">struct&lt;/span>&lt;span class="p">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">h&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">customHandler&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">ServeHTTP&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">r&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Fprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;Hello from custom handler!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">myHandler&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">r&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">fmt&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Fprintf&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">w&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="s">&amp;#34;Hello from myHandler!&amp;#34;&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用自定义的 handler
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Handle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/custom&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">customHandler&lt;/span>&lt;span class="p">{})&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// 使用 http.HandlerFunc 适配器
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Handle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;/mypath&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">HandlerFunc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">myHandler&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">http&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">ListenAndServe&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;:8080&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="kc">nil&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在上面的使用 &lt;code>http.Handle()&lt;/code> 的例子中，第二个参数不但可以是实现了 &lt;code>http.Handler&lt;/code> 接口的结构体，还可以像 &lt;code>http.HandleFunc()&lt;/code> 那样是普通函数，只需要在转换成 &lt;code>http.HandlerFunc&lt;/code> 类型即可。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// Handle registers the handler for the given pattern in [DefaultServeMux].
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// The documentation for [ServeMux] explains how patterns are matched.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="nf">Handle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pattern&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span> &lt;span class="nx">Handler&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">use121&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">DefaultServeMux&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">mux121&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">handle&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pattern&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">DefaultServeMux&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">register&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pattern&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// HandleFunc registers the handler function for the given pattern in [DefaultServeMux].
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// The documentation for [ServeMux] explains how patterns are matched.
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="kd">func&lt;/span> &lt;span class="nf">HandleFunc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pattern&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span> &lt;span class="kd">func&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ResponseWriter&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Request&lt;/span>&lt;span class="p">))&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">use121&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">DefaultServeMux&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">mux121&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">handleFunc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pattern&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span> &lt;span class="k">else&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">DefaultServeMux&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">register&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">pattern&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nf">HandlerFunc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">handler&lt;/span>&lt;span class="p">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>对比两个方法的内部实现，发现内部逻辑并没有区别，只是 &lt;code>http.HandleFunc&lt;/code> 会将传入的 &lt;code>func(ResponseWriter, *Request)&lt;/code> 类型的参数转换成 &lt;code>http.Handler&lt;/code> 类型。&lt;/p>
+&lt;p>我们再看 &lt;code>http.ListenAndServe&lt;/code> 函数的实现，摘自 &lt;a class="link" href="https://pkg.go.dev/net/http#ListenAndServe" target="_blank" rel="noopener"
+>http package - net/http - Go Packages&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-go" data-lang="go">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="nf">ListenAndServe&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">addr&lt;/span> &lt;span class="kt">string&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">handler&lt;/span> &lt;span class="nx">Handler&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="kt">error&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">server&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nx">Server&lt;/span>&lt;span class="p">{&lt;/span>&lt;span class="nx">Addr&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">addr&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">Handler&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="nx">handler&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">server&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">ListenAndServe&lt;/span>&lt;span class="p">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">func&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">srv&lt;/span> &lt;span class="o">*&lt;/span>&lt;span class="nx">Server&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="nf">ListenAndServe&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="kt">error&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">srv&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">shuttingDown&lt;/span>&lt;span class="p">()&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">ErrServerClosed&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">addr&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">srv&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">Addr&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">addr&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="s">&amp;#34;&amp;#34;&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">addr&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s">&amp;#34;:http&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ln&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">:=&lt;/span> &lt;span class="nx">net&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Listen&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;tcp&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nx">addr&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nx">err&lt;/span> &lt;span class="o">!=&lt;/span> &lt;span class="kc">nil&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">err&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="nx">srv&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nf">Serve&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">ln&lt;/span>&lt;span class="p">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>可以看到第二个参数也是 &lt;code>http.Handler&lt;/code> 类型，例子中 &lt;code>http.ListenAndServe(&amp;quot;:8080&amp;quot;, nil)&lt;/code> 传入的是 &lt;code>nil&lt;/code>，代表着使用标准库 &lt;code>net/http&lt;/code> 内置的路由，如果传入的是一个实现了 &lt;code>Handler&lt;/code> 接口的结构体就可以完全托管所有的 HTTP 请求。&lt;/p>
+&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>这样，既能够将普通的函数类型（需类型转换）作为参数，也可以将结构体作为参数，使用更为灵活，可读性也更好，这就是接口型函数的价值。&lt;/p>
+&lt;p>&lt;a class="link" href="https://geektutu.com/post/7days-golang-q1.html" target="_blank" rel="noopener"
+>参考文章&lt;/a>&lt;/p></description></item></channel></rss>

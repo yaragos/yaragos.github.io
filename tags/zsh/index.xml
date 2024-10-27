@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Zsh on Yaragos's Site</title><link>https://yaragos.top/tags/zsh/</link><description>Recent content in Zsh on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 09 Oct 2024 18:01:24 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/zsh/index.xml" rel="self" type="application/rss+xml"/><item><title>zsh插件管理器：从zplug转到zinit</title><link>https://yaragos.top/p/zsh-plugin-manager-from-zplug-to-zinit/</link><pubDate>Thu, 01 Feb 2024 18:09:12 +0800</pubDate><guid>https://yaragos.top/p/zsh-plugin-manager-from-zplug-to-zinit/</guid><description>&lt;img src="https://yaragos.top/p/zsh-plugin-manager-from-zplug-to-zinit/cover.jpg" alt="Featured image of post zsh插件管理器：从zplug转到zinit" />&lt;blockquote>
+&lt;p>好久之前就使用的是zplug管理zsh插件，为了追求速度，打算使用zinit。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="配置">配置
+&lt;/h2>&lt;p>我在zinit中多配置了一些插件，配置语法我目前也是一知半解，反正能用就行，我也不知道怎么更快，以后慢慢了解。&lt;/p>
+&lt;ul>
+&lt;li>zinit 配置&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;span class="lnt">28
+&lt;/span>&lt;span class="lnt">29
+&lt;/span>&lt;span class="lnt">30
+&lt;/span>&lt;span class="lnt">31
+&lt;/span>&lt;span class="lnt">32
+&lt;/span>&lt;span class="lnt">33
+&lt;/span>&lt;span class="lnt">34
+&lt;/span>&lt;span class="lnt">35
+&lt;/span>&lt;span class="lnt">36
+&lt;/span>&lt;span class="lnt">37
+&lt;/span>&lt;span class="lnt">38
+&lt;/span>&lt;span class="lnt">39
+&lt;/span>&lt;span class="lnt">40
+&lt;/span>&lt;span class="lnt">41
+&lt;/span>&lt;span class="lnt">42
+&lt;/span>&lt;span class="lnt">43
+&lt;/span>&lt;span class="lnt">44
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># # ------------&amp;gt;&amp;gt;&amp;gt; zinit &amp;lt;&amp;lt;&amp;lt;-------------&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### Added by Zinit&amp;#39;s installer&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> ! -f &lt;span class="nv">$HOME&lt;/span>/.local/share/zinit/zinit.git/zinit.zsh &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> print -P &lt;span class="s2">&amp;#34;%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">command&lt;/span> mkdir -p &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.local/share/zinit&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="nb">command&lt;/span> chmod g-rwX &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.local/share/zinit&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">command&lt;/span> git clone https://github.com/zdharma-continuum/zinit &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.local/share/zinit/zinit.git&amp;#34;&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> print -P &lt;span class="s2">&amp;#34;%F{33} %F{34}Installation successful.%f%b&amp;#34;&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> print -P &lt;span class="s2">&amp;#34;%F{160} The clone has failed.%f%b&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="nv">$HOME&lt;/span>&lt;span class="s2">/.local/share/zinit/zinit.git/zinit.zsh&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">autoload -Uz _zinit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">((&lt;/span> &lt;span class="si">${&lt;/span>&lt;span class="p">+_comps&lt;/span>&lt;span class="si">}&lt;/span> &lt;span class="o">))&lt;/span> &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> _comps&lt;span class="o">[&lt;/span>zinit&lt;span class="o">]=&lt;/span>_zinit
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Load a few important annexes, without Turbo (this is currently required for annexes)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit light-mode &lt;span class="k">for&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> zdharma-continuum/zinit-annex-as-monitor &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> zdharma-continuum/zinit-annex-bin-gem-node &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> zdharma-continuum/zinit-annex-patch-dl &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> zdharma-continuum/zinit-annex-rust
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># syntax highlight&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit ice lucid &lt;span class="nv">wait&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;0&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit light zsh-users/zsh-syntax-highlighting
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># auto-suggestion &amp;amp;&amp;amp; completion&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit ice lucid &lt;span class="nv">wait&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;0&amp;#34;&lt;/span> &lt;span class="nv">atload&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;_zsh_autosuggest_start&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit light zsh-users/zsh-autosuggestions
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit ice lucid blockf
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit light zsh-users/zsh-completions
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit ice lucid &lt;span class="nv">wait&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s2">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit light Aloxaf/fzf-tab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># OMZ&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit ice lucid &lt;span class="nv">wait&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="s1">&amp;#39;1&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::plugins/git/git.plugin.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::plugins/colored-man-pages/colored-man-pages.plugin.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Add `sudo` with &amp;lt;Esc&amp;gt;&amp;lt;Esc&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::plugins/sudo/sudo.plugin.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># theme&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::lib/theme-and-appearance.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::lib/git.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::lib/async_prompt.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::plugins/svn/svn.plugin.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit snippet OMZ::themes/ys.zsh-theme
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">### End of Zinit&amp;#39;s installer chunk&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>zplug 配置&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># ------------&amp;gt;&amp;gt;&amp;gt; zplug &amp;lt;&amp;lt;&amp;lt;-------------&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> &lt;span class="o">[[&lt;/span> ! -d ~/.zplug &lt;span class="o">]]&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> git clone https://github.com/b4b4r07/zplug.git ~/.zplug
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">source&lt;/span> ~/.zplug/zplug
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> zplug update --self
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">source&lt;/span> ~/.zplug/init.zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;plugins/svn&amp;#34;&lt;/span>, from:oh-my-zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;themes/ys&amp;#34;&lt;/span>, from:oh-my-zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;lib/history&amp;#34;&lt;/span>, from:oh-my-zsh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;zsh-users/zsh-completions&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;zsh-users/zsh-autosuggestions&amp;#34;&lt;/span>, as:plugin
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;zsh-users/zsh-syntax-highlighting&amp;#34;&lt;/span>, as:plugin, defer:2
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug &lt;span class="s2">&amp;#34;zsh-users/zsh-history-substring-search&amp;#34;&lt;/span>, as:plugin, defer:3
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Install plugins if there are plugins that have not been installed&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">if&lt;/span> ! zplug check --verbose&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">printf&lt;/span> &lt;span class="s2">&amp;#34;Install zplug plugins? [y/N]: &amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="nb">read&lt;/span> -q&lt;span class="p">;&lt;/span> &lt;span class="k">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> echo&lt;span class="p">;&lt;/span> zplug install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zplug load
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="对比">对比
+&lt;/h2>&lt;img src="image.png" style="zoom:80%;align:center;">
+&lt;p>对比发现，zinit虽然加载了更多插件，但启动速度稳定在0.2秒左右，而zplug则在0.5秒左右。&lt;/p></description></item></channel></rss>

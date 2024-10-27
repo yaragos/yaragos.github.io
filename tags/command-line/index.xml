@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Command Line on Yaragos's Site</title><link>https://yaragos.top/tags/command-line/</link><description>Recent content in Command Line on Yaragos's Site</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>Yaragos</copyright><lastBuildDate>Wed, 09 Oct 2024 18:01:24 +0800</lastBuildDate><atom:link href="https://yaragos.top/tags/command-line/index.xml" rel="self" type="application/rss+xml"/><item><title>我的配置 | 解锁 Linux 终端的最佳体验</title><link>https://yaragos.top/p/unlock-best-experience-of-linux-terminal/</link><pubDate>Tue, 09 Jul 2024 21:23:23 +0800</pubDate><guid>https://yaragos.top/p/unlock-best-experience-of-linux-terminal/</guid><description>&lt;img src="https://yaragos.top/p/unlock-best-experience-of-linux-terminal/cover.jpg" alt="Featured image of post 我的配置 | 解锁 Linux 终端的最佳体验" />&lt;blockquote>
+&lt;p>之前是一直用默认的终端模拟器，命令提示符的主题是 &lt;code>oh-my-zsh&lt;/code> 的 &lt;code>ys&lt;/code>，当然，并没有使用 &lt;code>oh-my-zsh&lt;/code> 这个框架，因为太慢了，如果我的终端打开超过 0.5s 我就接受不了，所以用的是 &lt;code>zinit&lt;/code> ，我之前&lt;a class="link" href="https://yaragos.top/p/zsh-plugin-manager-from-zplug-to-zinit/" target="_blank" rel="noopener"
+>这篇文章&lt;/a>讲了这个插件管理器。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="终端模拟器">终端模拟器
+&lt;/h2>&lt;h3 id="wezterm">wezterm
+&lt;/h3>&lt;p>&lt;a class="link" href="https://github.com/yaragos/dotfiles/blob/main/.wezterm.lua" target="_blank" rel="noopener"
+>我的 wezterm 配置&lt;/a>&lt;/p>
+&lt;p>使用 lua 作为配置语言，在 Github 搜关键词 &lt;code>wezterm config&lt;/code> 能看到 star 数最高的配置，那位大佬实现了彩色标签页，顶栏显示时间，随机背景图等功能，我不需要那么花哨，直接一个 &lt;code>.wezterm.lua&lt;/code> 就搞定了。&lt;/p>
+&lt;p>当然功能还是比较简单的，只设置了一些常用的快捷键。wezterm 的内存占用还是挺高的，有一百多MB，当然启动速度还是挺快的，我默认终端是 &lt;code>kitty&lt;/code>，更轻更快,内存占用 50MB 左右。&lt;/p>
+&lt;h3 id="kitty">kitty
+&lt;/h3>&lt;p>&lt;a class="link" href="https://github.com/yaragos/dotfiles/tree/main/.config/kitty" target="_blank" rel="noopener"
+>我的 kitty 配置&lt;/a>&lt;/p>
+&lt;p>当然，我的 kitty 目前功能还是挺简陋的，kitty 似乎无法用鼠标拖动滚动条，所以每次通过鼠标滚轮或者快捷键翻页都挺慢的，之后有时间打算添加搜索的快捷键，方便我定位上面的文本，省的有时候找上面的输出要翻半天。&lt;/p>
+&lt;p>kitty 是不支持 fcitx 输入法的中文输入的，&lt;a class="link" href="https://github.com/kovidgoyal/kitty/issues/469" target="_blank" rel="noopener"
+>这篇 issue 中提到了。&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 在 /etc/profile 中添加&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nv">GLFW_IM_MODULE&lt;/span>&lt;span class="o">=&lt;/span>ibus
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 或在 ~/.profile&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">export&lt;/span> &lt;span class="nv">GLFW_IM_MODULE&lt;/span>&lt;span class="o">=&lt;/span>ibus
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="命令提示符--cmd-prompt">命令提示符 | cmd-prompt
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/yaragos/dotfiles/blob/main/.config/starship.toml" target="_blank" rel="noopener"
+>我的 starship 配置&lt;/a>&lt;/p>
+&lt;p>我挺喜欢 oh-my-zsh 的 ys 主题的，一直使用的这个，无论是之前用 zplug 还是现在用 zinit,我都使用的 ys 主题，但 ys 主题依赖了一些 oh-my-zsh 的 plugin 和 lib, 为了精简我的 zsh 配置，我使用 starship 仿了个ys 主题，效果比原先的 ys 更好。&lt;/p>
+&lt;p>我的 starship 配置是需要有 NerdFont 字体支持的。&lt;/p>
+&lt;h2 id="终端字体">终端字体
+&lt;/h2>&lt;p>终端字体当然是 nerd font 了，我的 nvim 和 starship 都需要 nerd font 字体。&lt;br>
+我使用的是这两款：&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/microsoft/cascadia-code" target="_blank" rel="noopener"
+>Cascadia Code | Github&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/JetBrains/JetBrainsMono" target="_blank" rel="noopener"
+>JetBrains Mono | Github&lt;/a>&lt;/p>
+&lt;h2 id="zsh-体验优化">zsh 体验优化
+&lt;/h2>&lt;h3 id="补全和自动建议历史命令搜索">补全和自动建议，历史命令搜索
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/junegunn/fzf" target="_blank" rel="noopener"
+>fzf&lt;/a> + &lt;a class="link" href="https://github.com/Aloxaf/fzf-tab" target="_blank" rel="noopener"
+>fzf-tab&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>t&lt;/kbd> 搜索文件路径，&lt;br>
+&lt;kbd>Ctrl&lt;/kbd> + &lt;kbd>r&lt;/kbd> 搜索历史命令，&lt;br>
+&lt;kbd>Tab&lt;/kbd> 键补全命令参数或路径（这个好用）。&lt;/p>
+&lt;h3 id="vi-mode">vi mode
+&lt;/h3>&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/jeffreytse/zsh-vi-mode" target="_blank" rel="noopener"
+>zsh-vi-mode&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>zsh 默认是有 vi mode 的，但默认的功能更简陋。而且这个插件虽然叫 vi mode，但不仅支持 vi 模式 ，还支持 emacs 模式。&lt;br>
+需要注意这个插件和 fzf 有冲突，需要像下面这样解决：&lt;/p>
+&lt;p>&lt;a class="link" href="https://github.com/jeffreytse/zsh-vi-mode/issues/4" target="_blank" rel="noopener"
+>相关 issue&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># zsh-vi-mode&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">function&lt;/span> zvm_config&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ZVM_LINE_INIT_MODE&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="nv">$ZVM_MODE_INSERT&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nv">ZVM_VI_INSERT_ESCAPE_BINDKEY&lt;/span>&lt;span class="o">=&lt;/span>jk
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">function&lt;/span> zvm_after_init&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> bindkey -M vicmd &lt;span class="s2">&amp;#34;H&amp;#34;&lt;/span> vi-first-non-blank
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> bindkey -M vicmd &lt;span class="s2">&amp;#34;L&amp;#34;&lt;/span> vi-end-of-line
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> bindkey &lt;span class="s1">&amp;#39; &amp;#39;&lt;/span> magic-space &lt;span class="c1"># [Space] - don&amp;#39;t do history expansion&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> bindkey &lt;span class="s2">&amp;#34;\C-j&amp;#34;&lt;/span> copy-prev-shell-word &lt;span class="c1"># file rename magick, use &amp;lt;C-m&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">source&lt;/span> &amp;lt;&lt;span class="o">(&lt;/span>fzf --zsh&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit ice &lt;span class="nv">depth&lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="m">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">zinit light jeffreytse/zsh-vi-mode
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="结语">结语
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/yaragos/dotfiles/blob/main/.zshrc" target="_blank" rel="noopener"
+>我的 zsh 配置&lt;/a>&lt;/p>
+&lt;p>我的其他配置比如 vim 和 nvim 都在 &lt;a class="link" href="https://github.com/yaragos/dotfiles" target="_blank" rel="noopener"
+>dotfiles&lt;/a> 仓库里。&lt;/p></description></item><item><title>优雅地搜索命令历史记录</title><link>https://yaragos.top/p/search-command-history-elegantly/</link><pubDate>Fri, 24 Nov 2023 13:32:48 +0800</pubDate><guid>https://yaragos.top/p/search-command-history-elegantly/</guid><description>&lt;img src="https://yaragos.top/p/search-command-history-elegantly/cover.jpg" alt="Featured image of post 优雅地搜索命令历史记录" />&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>&lt;code>history&lt;/code>命令可以显示所有的命令历史记录，但难以查找命令。&lt;br>
+聪明的你当然会想到配合&lt;code>grep&lt;/code>命令进行搜索，可行但效率太低，这样检索不够灵活，要查找记忆模糊的命令还需要正则匹配。&lt;/p>
+&lt;h2 id="模糊搜索命令历史记录">模糊搜索命令历史记录
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/junegunn/fzf" target="_blank" rel="noopener"
+>fzf&lt;/a>是一个交互式命令行模糊搜索工具，可以模糊搜索内容、模糊补全文件路径等，功能强大，更多功能请参考官方文档。&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>通过自带的包管理器或&lt;code>homebrew&lt;/code>等第三方包管理器安装即可，参考官方文档安装。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下&lt;code>ctrl+r&lt;/code>组合键，进入命令历史记录搜索模式，输入搜索内容，fzf会自动搜索匹配的命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>ctrl+j&lt;/code>或&lt;code>ctrl+n&lt;/code>向下移动，&lt;code>ctrl+k&lt;/code>或&lt;code>ctrl+p&lt;/code>向上移动，也可以使用方向键或鼠标滚轮，按下回车选中命令。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>按下&lt;code>ctrl+g&lt;/code>组合键或&lt;code>Esc&lt;/code>键，退出搜索模式，返回命令行。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>如果你忘了快捷键，可以使用&lt;code>history | fzf&lt;/code>命令，通过管道让&lt;code>fzf&lt;/code>模糊搜索&lt;code>history&lt;/code>的输出内容。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="使用fzf进行文件路径补全">使用fzf进行文件路径补全
+&lt;/h2>&lt;p>既然提到&lt;code>fzf&lt;/code>，那么顺便介绍一下如何使用它进行文件路径补全。&lt;br>
+当然，默认按&lt;code>tab&lt;/code>键也可以进行补全，但&lt;code>fzf&lt;/code>更好用。&lt;/p>
+&lt;ul>
+&lt;li>如果想补全指定目录下的某个文件名，在指定目录下输入两个星号，然后按下&lt;code>tab&lt;/code>键，就会打开&lt;code>fzf&lt;/code>的交互式界面进行匹配。&lt;/li>
+&lt;li>例：比如想补全&lt;code>~/.config/&lt;/code>下的某个较长的文件名，&lt;code>ls ~/.config/**&lt;/code> ，然后按下&lt;code>tab&lt;/code>键&lt;/li>
+&lt;li>如果想输入某个用户目录下的路径，可以使用快捷键&lt;code>ctrl+t&lt;/code>打开交互式界面，选中后回车上屏。&lt;/li>
+&lt;/ul></description></item></channel></rss>
