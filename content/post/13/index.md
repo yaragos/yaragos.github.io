@@ -1,6 +1,6 @@
 ---
 title: 'Go 切片增长策略'
-date: 2024-08-27T19:57:40+08:00
+date: 2024-08-17T19:57:40+08:00
 slug: "slice-grow-strategy-in-go"
 image: "cover.jpg"
 tags:
