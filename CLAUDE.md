@@ -15,7 +15,7 @@ There is no package manager, test framework, or lint command configured in this 
 
 This is a Zola 0.22.x personal blog theme project. The site is currently focused on a liquid-glass visual style, long-form posts, and short-form moments similar to WeChat timeline posts.
 
-Zola configuration lives in `zola.toml`:
+Zola configuration lives in `config.toml`:
 
 - Sass compilation is enabled via `compile_sass = true`; the main stylesheet is `sass/main.scss` and compiles to `main.css`.
 - Search index generation is enabled, but the custom search UI currently builds its own JSON payload in `templates/search.html` and uses `static/js/search.js`.
