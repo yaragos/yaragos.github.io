@@ -1,12 +1,10 @@
 (function () {
   const input = document.querySelector("#site-search");
   const results = document.querySelector("[data-search-results]");
-  const count = document.querySelector("[data-search-count]");
   const dataNode = document.querySelector("#search-data");
-  const label = document.querySelector(".search-label");
   const toggles = Array.from(document.querySelectorAll("[data-search-kind]"));
 
-  if (!input || !results || !count || !dataNode) {
+  if (!input || !results || !dataNode) {
     return;
   }
 
@@ -28,11 +26,8 @@
     results.innerHTML = "";
 
     if (!query) {
-      count.textContent = "Start typing to search " + activeLabel() + ".";
       return;
     }
-
-    count.textContent = matches.length === 1 ? "1 " + activeKind.toLowerCase() + " found." : matches.length + " " + activeLabel() + " found.";
 
     if (matches.length === 0) {
       results.innerHTML = '<p class="search-empty">No matching ' + activeLabel() + ' yet.</p>';
@@ -103,10 +98,6 @@
         item.setAttribute("aria-checked", String(isActive));
       });
 
-      if (label) {
-        label.textContent = "Search " + activeLabel();
-      }
-
       search();
       input.focus();
     });
@@ -133,9 +124,6 @@
       item.classList.toggle("is-active", isActive);
       item.setAttribute("aria-checked", String(isActive));
     });
-    if (label) {
-      label.textContent = "Search " + activeLabel();
-    }
   }
 
   search();

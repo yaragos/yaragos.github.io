@@ -44,7 +44,7 @@
         <span class="category-card__count">{{ count }} post{% if count != 1 %}s{% endif %}</span>
       </a>
     {% else %}
-      <div class="category-card glass-panel is-empty{% if has_cover %} has-image{% endif %}" aria-disabled="true" title="暂无文章">
+      <div class="category-card glass-panel is-empty{% if has_cover %} has-image{% endif %}" aria-disabled="true" title="No posts yet">
         {% if has_cover %}
           <img class="category-card__image" src="{{ cover_url }}" alt="">
         {% endif %}

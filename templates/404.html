@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}404 · {{ config.title }}{% endblock title %}
+
+{% block body_class %}not-found-page{% endblock body_class %}
+
+{% block content %}
+<section class="not-found">
+  <div class="not-found__panel glass-panel">
+    <p class="eyebrow">Error 404</p>
+    <h1 class="not-found__code pixel-title-inline" aria-label="404">
+      <span>4</span><span class="not-found__zero" aria-hidden="true">0</span><span>4</span>
+    </h1>
+    <p class="not-found__lead">This page went missing.</p>
+    <div class="not-found__actions">
+      <a class="button primary" href="{{ get_url(path='@/_index.md') }}">Home</a>
+      <a class="button" href="{{ get_url(path='@/posts/_index.md') }}">Posts</a>
+      <a class="button" href="{{ get_url(path='@/search/_index.md') }}">Search</a>
+    </div>
+  </div>
+</section>
+{% endblock content %}
