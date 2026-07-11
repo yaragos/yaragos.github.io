@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% set category_meta = load_data(path="templates/category_meta.toml") %}
+{% set root = get_section(path="categories/_index.md") %}
 <section class="page-hero compact pixel-title">
   <p class="eyebrow">Browse by</p>
   <h1>Categories</h1>
@@ -9,26 +9,54 @@
 </section>
 
 <div class="category-grid">
-  {% for term in terms %}
-    {% set term_key = term.name | lower %}
-    {% set_global meta = false %}
-    {% for key, item in category_meta %}
-      {% if term_key in item.aliases %}
-        {% set_global meta = item %}
-      {% endif %}
-    {% endfor %}
-    <a class="category-card glass-panel{% if meta and meta.image %} has-image{% endif %}" href="{{ term.permalink }}">
-      {% if meta and meta.image %}
-        <img class="category-card__image" src="{{ get_url(path=meta.image) }}" alt="">
-      {% endif %}
-      <div class="category-card__body">
-        <h2 class="category-card__title">{% if meta and meta.title %}{{ meta.title }}{% else %}{{ term.name }}{% endif %}</h2>
-        {% if meta and meta.description %}
-          <p class="category-card__desc">{{ meta.description }}</p>
+  {% for subsection_path in root.subsections %}
+    {% set meta = get_section(path=subsection_path) %}
+    {% set aliases = meta.extra.aliases | default(value=[]) %}
+    {% set_global term = false %}
+    {% if terms %}
+      {% for t in terms %}
+        {% set term_key = t.name | lower %}
+        {% for alias in aliases %}
+          {% if alias | lower == term_key %}
+            {% set_global term = t %}
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+    {% set count = 0 %}
+    {% if term %}{% set count = term.pages | length %}{% endif %}
+    {% set has_cover = meta.extra.cover %}
+    {% set cover_url = "" %}
+    {% if has_cover %}
+      {% set cover_url = get_url(path=meta.path ~ meta.extra.cover) %}
+    {% endif %}
+    {% if term %}
+      <a class="category-card glass-panel{% if has_cover %} has-image{% endif %}" href="{{ term.permalink }}">
+        {% if has_cover %}
+          <img class="category-card__image" src="{{ cover_url }}" alt="">
         {% endif %}
+        <div class="category-card__body">
+          <h2 class="category-card__title">{{ meta.title }}</h2>
+          {% if meta.description %}
+            <p class="category-card__desc">{{ meta.description }}</p>
+          {% endif %}
+        </div>
+        <span class="category-card__count">{{ count }} post{% if count != 1 %}s{% endif %}</span>
+      </a>
+    {% else %}
+      <div class="category-card glass-panel is-empty{% if has_cover %} has-image{% endif %}" aria-disabled="true" title="暂无文章">
+        {% if has_cover %}
+          <img class="category-card__image" src="{{ cover_url }}" alt="">
+        {% endif %}
+        <div class="category-card__body">
+          <h2 class="category-card__title">{{ meta.title }}</h2>
+          {% if meta.description %}
+            <p class="category-card__desc">{{ meta.description }}</p>
+          {% endif %}
+        </div>
+        <span class="category-card__count">0 posts</span>
       </div>
-      <span class="category-card__count">{{ term.pages | length }} post{% if term.pages | length != 1 %}s{% endif %}</span>
-    </a>
+    {% endif %}
   {% endfor %}
 </div>
 {% endblock content %}

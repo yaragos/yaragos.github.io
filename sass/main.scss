@@ -1934,13 +1934,23 @@ body:not(.home-page) .page-hero.pixel-title h1 {
   margin: 0 22px 22px;
 }
 
-.category-card:hover {
+.category-card:not(.is-empty):hover {
   transform: translateY(-4px) scale(1.006);
   border-color: var(--glass-edge);
   box-shadow:
     0 34px 90px rgba(31, 49, 67, 0.22),
     0 12px 30px rgba(10, 124, 255, 0.08),
     var(--inner-glow);
+}
+
+.category-card.is-empty {
+  cursor: not-allowed;
+  opacity: 0.58;
+  filter: saturate(0.6);
+}
+
+.category-card.is-empty:hover {
+  transform: none;
 }
 
 .category-card__body {
