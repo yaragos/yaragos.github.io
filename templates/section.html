@@ -1,0 +1,64 @@
+{% extends "base.html" %} {% import "macros.html" as macros %} {% block content
+%}
+<section class="page-hero compact archive-hero pixel-title">
+    <p class="eyebrow">Archive</p>
+    <h1>{{ section.title }}</h1>
+    {% if section.description %}
+    <p>{{ section.description }}</p>
+    {% endif %}
+</section>
+
+<section class="entry-grid archive-grid" data-masonry-grid>
+    {% for page in paginator.pages %} {{ macros::page_card(page=page,
+    class="archive-card") }} {% endfor %}
+</section>
+
+{% if paginator.number_pagers > 1 %}
+<nav class="pagination glass-panel" aria-label="Post pagination">
+    {% if paginator.previous %}
+    <a
+        class="pagination-arrow"
+        href="{{ paginator.previous }}"
+        aria-label="Newer posts"
+        >‹</a
+    >
+    {% else %}
+    <span class="pagination-arrow is-disabled" aria-hidden="true">‹</span>
+    {% endif %}
+
+    <ol class="pagination-pages">
+        {% for page_number in range(start=1, end=paginator.number_pagers + 1) %}
+        {% if page_number == paginator.current_index %}
+        <li>
+            <span class="pagination-page is-current" aria-current="page"
+                >{{ page_number }}</span
+            >
+        </li>
+        {% else %} {% if page_number == 1 %} {% set page_url = paginator.first
+        %} {% else %} {% set page_url = paginator.base_url ~ page_number ~ "/"
+        %} {% endif %}
+        <li>
+            <a class="pagination-page" href="{{ page_url }}"
+                >{{ page_number }}</a
+            >
+        </li>
+        {% endif %} {% endfor %}
+    </ol>
+
+    {% if paginator.next %}
+    <a
+        class="pagination-arrow"
+        href="{{ paginator.next }}"
+        aria-label="Older posts"
+        >›</a
+    >
+    {% else %}
+    <span class="pagination-arrow is-disabled" aria-hidden="true">›</span>
+    {% endif %}
+</nav>
+{% endif %}
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ get_url(path='js/masonry-grid.js') }}?v=3" defer></script>
+{% endblock scripts %}

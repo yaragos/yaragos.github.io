@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "zola",
+      "runtimeExecutable": "sh",
+      "runtimeArgs": ["-c", "zola serve --interface 127.0.0.1 --port ${PORT}"],
+      "port": 1111,
+      "autoPort": true
+    }
+  ]
+}

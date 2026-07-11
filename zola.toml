@@ -1,0 +1,32 @@
+# The URL the site will be built for
+base_url = "https://yaragos.top"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+title = "Yara's Blog"
+description = "A personal blog shaped with liquid glass, moments, and technical writing."
+
+taxonomies = [
+  { name = "tags", feed = true },
+  { name = "categories", feed = true },
+]
+
+[markdown]
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[search]
+include_title = true
+include_description = true
+include_content = true
+include_path = true
+
+[extra]
+# Put all your custom variables here
+author = "Yara"
+tagline = "Writing about code, systems, design, and the small observations between them."

@@ -1,0 +1,72 @@
+{% macro page_card(page, class="") %}
+<article class="entry-card glass-panel{% if page.extra.cover %} has-cover{% endif %} {{ class }}">
+  {% if page.extra.cover %}
+    <a class="entry-cover-link" href="{{ page.permalink }}" aria-label="{{ page.title }}">
+      <img class="entry-cover" src="{{ get_url(path=page.extra.cover) }}" alt="">
+    </a>
+  {% endif %}
+  <div class="entry-body">
+    <a class="entry-link" href="{{ page.permalink }}" data-search-text="{{ [page.title, page.description | default(value=''), page.taxonomies.tags | default(value=[]) | join(sep=' '), page.taxonomies.categories | default(value=[]) | join(sep=' '), page.content | striptags] | join(sep=' ') | lower | escape }}">
+      <h2>{{ page.title }}</h2>
+      {% if page.description %}<p>{{ page.description }}</p>{% endif %}
+      {% if page.date %}
+        <div class="entry-meta">
+          <time datetime="{{ page.date }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+        </div>
+      {% endif %}
+    </a>
+    {% if page.taxonomies.categories %}
+      <div class="entry-meta">
+        <span class="entry-categories">
+          {% for cat in page.taxonomies.categories %}
+            <a href="{{ get_taxonomy_url(kind='categories', name=cat) }}">{{ cat }}</a>
+          {% endfor %}
+        </span>
+      </div>
+    {% endif %}
+    {% if page.taxonomies.tags %}
+      <ul class="tag-list" aria-label="Tags">
+        {% for tag in page.taxonomies.tags %}
+          <li><a href="{{ get_taxonomy_url(kind='tags', name=tag) }}">{{ tag }}</a></li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  </div>
+</article>
+{% endmacro page_card %}
+
+{% macro taxonomy_pills(items, taxonomy_name) %}
+<div class="pill-cloud">
+  {% for item in items %}
+    <a class="glass-pill" href="{{ item.permalink }}">
+      <span>{{ item.name }}</span>
+      <small>{{ item.pages | length }}</small>
+    </a>
+  {% endfor %}
+</div>
+{% endmacro taxonomy_pills %}
+
+{% macro toc_tree(items, prefix="toc") %}
+<ol class="toc-list">
+  {% for item in items %}
+    {% set item_id = prefix ~ "-" ~ loop.index %}
+    <li class="toc-item" data-toc-item>
+      <div class="toc-row">
+        {% if item.children %}
+          <button class="toc-toggle" type="button" aria-expanded="true" aria-controls="{{ item_id }}-children" aria-label="Toggle subsection: {{ item.title }}">
+            <span aria-hidden="true"></span>
+          </button>
+        {% else %}
+          <span class="toc-toggle-spacer" aria-hidden="true"></span>
+        {% endif %}
+        <a class="toc-link" href="#{{ item.id }}" data-toc-target="{{ item.id }}">{{ item.title }}</a>
+      </div>
+      {% if item.children %}
+        <div id="{{ item_id }}-children" class="toc-children">
+          {{ self::toc_tree(items=item.children, prefix=item_id) }}
+        </div>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ol>
+{% endmacro toc_tree %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% import "macros.html" as macros %} {% block body_class %}home-page{% endblock body_class %} {% block content
+%}
+<section class="page-hero compact post-home pixel-title">
+    <p class="eyebrow">Latest posts</p>
+    <h1>zZZ</h1>
+    <p>{{ config.extra.tagline }}</p>
+</section>
+
+<section class="entry-grid archive-grid" data-masonry-grid>
+    {% for page in paginator.pages %} {{ macros::page_card(page=page) }} {%
+    endfor %}
+</section>
+
+{% if paginator.previous or paginator.next %}
+<nav class="pagination glass-panel" aria-label="Post pagination">
+    {% if paginator.previous %}
+    <a
+        class="pagination-arrow"
+        href="{{ paginator.previous }}"
+        aria-label="Newer posts"
+        >‹</a
+    >
+    {% else %}
+    <span class="pagination-arrow is-disabled" aria-hidden="true">‹</span>
+    {% endif %} {% if paginator.next %}
+    <a
+        class="pagination-arrow"
+        href="{{ paginator.next }}"
+        aria-label="Older posts"
+        >›</a
+    >
+    {% else %}
+    <span class="pagination-arrow is-disabled" aria-hidden="true">›</span>
+    {% endif %}
+</nav>
+{% endif %} {% endblock content %}
+
+{% block scripts %}
+<script src="{{ get_url(path='js/masonry-grid.js') }}?v=3" defer></script>
+{% endblock scripts %}

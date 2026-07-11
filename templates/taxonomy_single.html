@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block content %}
+{% set category_meta = load_data(path="templates/category_meta.toml") %}
+{% set term_key = term.name | lower %}
+{% set_global meta = false %}
+{% if taxonomy.name == "categories" %}
+  {% for key, item in category_meta %}
+    {% if term_key in item.aliases %}
+      {% set_global meta = item %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+<section class="page-hero compact{% if meta and meta.image %} category-hero has-image{% endif %}">
+  <div>
+    <p class="eyebrow">{{ taxonomy.name | capitalize }}</p>
+    <h1>{% if meta and meta.title %}{{ meta.title }}{% else %}{{ term.name }}{% endif %}</h1>
+    <p>{% if meta and meta.description %}{{ meta.description }}{% else %}{{ term.pages | length }} item{% if term.pages | length != 1 %}s{% endif %} in this collection.{% endif %}</p>
+  </div>
+  {% if meta and meta.image %}
+    <img class="category-hero__image" src="{{ get_url(path=meta.image) }}" alt="">
+  {% endif %}
+</section>
+
+<section class="entry-grid archive-grid" data-masonry-grid>
+  {% for page in term.pages %}
+    {{ macros::page_card(page=page) }}
+  {% endfor %}
+</section>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ get_url(path='js/masonry-grid.js') }}?v=3" defer></script>
+{% endblock scripts %}

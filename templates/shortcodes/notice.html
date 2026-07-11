@@ -1,0 +1,8 @@
+{% set kind = type | default(value="note") %}
+{% if kind != "warning" and kind != "info" and kind != "note" and kind != "tip" %}
+  {% set kind = "note" %}
+{% endif %}
+<aside class="notice notice-{{ kind }}"{% if id %} id="{{ id }}"{% endif %}>
+  <div class="notice-title">{{ kind | capitalize }}</div>
+  {{ body | markdown | safe }}
+</aside>

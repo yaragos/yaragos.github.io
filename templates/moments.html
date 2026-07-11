@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-hero compact pixel-title">
+  <p class="eyebrow">Timeline</p>
+  <h1>{{ section.title }}</h1>
+  {% if section.description %}<p>{{ section.description }}</p>{% endif %}
+</section>
+
+<section class="moment-feed">
+  <ol class="timeline long moments-list">
+    {% for page in section.pages %}
+      <li class="timeline-item">
+        <article class="moment-card glass-panel">
+          <div class="moment-time">
+            {% if page.date %}
+              <time datetime="{{ page.date }}">
+                <span>Published</span>
+                {{ page.date | date(format="%Y-%m-%d %H:%M") }}
+              </time>
+            {% endif %}
+            {% if page.date %}
+              <time datetime="{{ page.updated | default(value=page.date) }}">
+                <span>Updated</span>
+                {{ page.updated | default(value=page.date) | date(format="%Y-%m-%d %H:%M") }}
+              </time>
+            {% endif %}
+          </div>
+          <div class="prose moment-body">
+            {{ page.content | safe }}
+          </div>
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endblock content %}

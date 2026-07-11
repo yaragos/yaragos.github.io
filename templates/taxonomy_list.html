@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+
+{% block content %}
+<section class="page-hero compact pixel-title">
+  <p class="eyebrow">Browse by</p>
+  <h1>{{ taxonomy.name | capitalize }}</h1>
+  <p>Explore writing grouped by {{ taxonomy.name }}.</p>
+</section>
+
+{{ macros::taxonomy_pills(items=terms, taxonomy_name=taxonomy.name) }}
+{% endblock content %}

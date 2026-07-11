@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Moment · {{ config.title }}{% endblock title %}
+
+{% block content %}
+<article class="moment-detail glass-panel">
+  <div class="moment-time">
+    {% if page.date %}<time datetime="{{ page.date }}">Published {{ page.date | date(format="%Y-%m-%d %H:%M:%S") }}</time>{% endif %}
+    {% if page.date %}<time datetime="{{ page.updated | default(value=page.date) }}">Updated {{ page.updated | default(value=page.date) | date(format="%Y-%m-%d %H:%M:%S") }}</time>{% endif %}
+  </div>
+  <div class="prose moment-body">
+    {{ page.content | safe }}
+  </div>
+</article>
+{% endblock content %}

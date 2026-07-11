@@ -1,0 +1,8 @@
+{% set total = max | default(value=5) %}
+{% set value = filled | default(value=0) %}
+<span class="rating" aria-label="{{ value }} out of {{ total }}">
+  <span class="rating__stars" aria-hidden="true">
+    {% for i in range(end=total) %}{% if i < value %}★{% else %}☆{% endif %}{% endfor %}
+  </span>
+  <span class="rating__value">{{ value }}/{{ total }}</span>
+</span>

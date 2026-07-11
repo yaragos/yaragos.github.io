@@ -1,0 +1,21 @@
+# Zola build output
+/public/
+
+# Zola search / cache
+/static/search_index.*.json
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Claude Code local overrides
+.claude/settings.local.json
+
+# Blog posts — not ready to publish yet
+/content/posts/*/
+!/content/posts/_index.md

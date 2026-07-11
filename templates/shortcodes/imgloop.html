@@ -1,0 +1,14 @@
+{% set items = images | split(pat=",") %}
+<div class="imgloop" data-imgloop role="group" aria-roledescription="carousel" aria-label="{{ alt | default(value="Image gallery") }}">
+  <div class="imgloop__track">
+    {% for item in items %}
+      {% set src = item | trim %}
+      {% if src %}
+        <figure class="imgloop__slide">
+          <img src="{{ src }}" alt="{{ alt | default(value="") }}" loading="lazy">
+        </figure>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="imgloop__dots" aria-hidden="true"></div>
+</div>

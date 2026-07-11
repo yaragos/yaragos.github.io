@@ -1,0 +1,19 @@
+{% set side = pos | default(value="right") %}
+<div class="chat{% if side == "left" %} chat--other{% else %} chat--self{% endif %}">
+  <div class="chat__inner">
+    {% if name or time %}
+      <div class="chat__meta">
+        {% if side == "left" %}
+          {% if name %}<span>{{ name }}</span>{% endif %}
+          {% if time %}<time>{{ time }}</time>{% endif %}
+        {% else %}
+          {% if time %}<time>{{ time }}</time>{% endif %}
+          {% if name %}<span>{{ name }}</span>{% endif %}
+        {% endif %}
+      </div>
+    {% endif %}
+    <div class="chat__text">
+      {{ body | markdown | safe }}
+    </div>
+  </div>
+</div>

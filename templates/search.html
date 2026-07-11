@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% set posts = get_section(path="posts/_index.md") %}
+{% set moments = get_section(path="moments/_index.md") %}
+<section class="page-hero compact pixel-title">
+  <p class="eyebrow">Find anything</p>
+  <h1>{{ section.title }}</h1>
+  {% if section.description %}<p>{{ section.description }}</p>{% endif %}
+</section>
+
+<section class="search-panel glass-panel">
+  <div class="search-toolbar" role="radiogroup" aria-label="Search content type">
+    <button class="search-toggle is-active" type="button" role="radio" aria-checked="true" data-search-kind="Post">Posts</button>
+    <button class="search-toggle" type="button" role="radio" aria-checked="false" data-search-kind="Moment">Moments</button>
+  </div>
+  <label class="search-label" for="site-search">Search posts</label>
+  <input id="site-search" class="search-input" type="search" placeholder="Try “glass”, “Zola”, or “测试”" autocomplete="off">
+  <p class="search-count" data-search-count>Start typing to search posts.</p>
+  <div class="search-results" data-search-results></div>
+</section>
+
+<script type="application/json" id="search-data">
+[
+  {% for page in posts.pages %}
+    {
+      "title": {{ page.title | json_encode | safe }},
+      "description": {{ page.description | default(value="") | json_encode | safe }},
+      "url": {{ page.permalink | json_encode | safe }},
+      "date": {{ page.date | date(format="%Y-%m-%d %H:%M:%S") | json_encode | safe }},
+      "updated": {{ page.updated | default(value=page.date) | date(format="%Y-%m-%d %H:%M:%S") | json_encode | safe }},
+      "kind": "Post",
+      "tags": {{ page.taxonomies.tags | default(value=[]) | join(sep=" ") | json_encode | safe }},
+      "content": {{ page.content | striptags | json_encode | safe }}
+    }{% if not loop.last or moments.pages | length > 0 %},{% endif %}
+  {% endfor %}
+  {% for page in moments.pages %}
+    {
+      "title": "Moment",
+      "description": {{ page.content | striptags | truncate(length=120) | json_encode | safe }},
+      "url": {{ page.permalink | json_encode | safe }},
+      "date": {{ page.date | date(format="%Y-%m-%d %H:%M:%S") | json_encode | safe }},
+      "updated": {{ page.updated | default(value=page.date) | date(format="%Y-%m-%d %H:%M:%S") | json_encode | safe }},
+      "kind": "Moment",
+      "tags": {{ page.taxonomies.tags | default(value=[]) | join(sep=" ") | json_encode | safe }},
+      "content": {{ page.content | striptags | json_encode | safe }}
+    }{% if not loop.last %},{% endif %}
+  {% endfor %}
+]
+</script>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ get_url(path='js/search.js') }}" defer></script>
+{% endblock scripts %}
