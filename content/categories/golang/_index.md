@@ -1,6 +1,6 @@
 +++
 title = "Golang"
-description = "Golang 相关"
+description = ""
 render = false
 
 [extra]

@@ -1,6 +1,6 @@
 +++
 title = "Linux"
-description = "Linux 相关学习笔记"
+description = ""
 render = false
 
 [extra]

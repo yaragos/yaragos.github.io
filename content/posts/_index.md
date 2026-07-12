@@ -1,6 +1,6 @@
 +++
 title = "Posts"
-description = "Long-form essays, technical writing, and field reports."
+description = ""
 sort_by = "date"
 template = "section.html"
 page_template = "page.html"

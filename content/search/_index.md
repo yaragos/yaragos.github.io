@@ -1,5 +1,5 @@
 +++
 title = "Search"
-description = "Search posts or moments with a focused content switcher."
+description = ""
 template = "search.html"
 +++

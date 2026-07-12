@@ -1,6 +1,6 @@
 +++
 title = "大前端"
-description = "前端技术和框架，不限语言"
+description = ""
 render = false
 
 [extra]

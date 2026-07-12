@@ -1,6 +1,6 @@
 +++
 title = "Categories"
-description = "Explore writing grouped by topic."
+description = ""
 render = true
 template = "categories/list.html"
 sort_by = "none"
