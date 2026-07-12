@@ -122,5 +122,5 @@
   });
 
   setFeImageHref("liquid-glass-map", panelMap && panelMap.href, 220, 220, panelMap && panelMap.scale);
-  setFeImageHref("dock-liquid-glass-map", dockMap && dockMap.href, 700, 76, dockMap && dockMap.scale);
+  setFeImageHref("dock-liquid-glass-map", dockMap && dockMap.href, 700, 76, dockMap && dockMap.scale * 0.2);
 })();
